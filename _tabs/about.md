@@ -52,7 +52,7 @@ I'm currently an undergrad(junior) student, soon to be masters student🤞, who 
 
 #### Finalist, Trend Micro CTF Finals 2024
 
-> Competed as a team captain of team Katipwneros in a Capture The Flag (CTF) competition. Placed 22nd out of 187 teams in the Philippines. Organized by Trend Micro.
+> Competed as a team captain of team Katipwneros in a Capture The Flag (CTF) competition organized by Trend Micro.
 
 #### Top 6, HackForGov Finals 2024
 
