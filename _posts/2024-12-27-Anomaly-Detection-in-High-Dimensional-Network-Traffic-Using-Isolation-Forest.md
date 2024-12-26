@@ -10,10 +10,10 @@ tags:
 ---
 
 In today's digital landscape, network security is a critical concern for organizations and individuals. Cyberattacks are becoming increasingly sophisticated, making it essential to detect and mitigate potential threats in real time. Traditional intrusion detection systems (IDS) often struggle with high false-positive rates or fail to adapt to evolving attack patterns (Cisco, 2023).
-
+<br>
 The challenge lies in accurately classifying network traffic as either normal or malicious. Misclassifications can result in false positives, leading to alert fatigue among security analysts, or false negatives, which can have severe consequences, including unauthorized access, data breaches, or system downtime (Kumar & Singh, 2022). This project aims to leverage data mining techniques to develop a model that effectively classifies network traffic, improving the reliability and efficiency of intrusion detection systems. Data mining approaches have been shown to enhance IDS performance by reducing false positives and increasing detection rates (Li et al., 2021).
 The dataset used in this project is the UNSW-NB15 dataset from Kaggle(Moustafa & Slay, 2015). It was created by the IXIA PerfectStorm tool in the Cyber Range Lab of the Australian Centre for Cyber Security (ACCS) to generate a hybrid of real modern normal activities and synthetic contemporary attack behaviors. The dataset includes features such as packet size, protocol type, and flow duration, along with labels for attack types and normal traffic (Zhao et al., 2023).
-
+<br>
 By utilizing this comprehensive dataset and applying advanced data mining techniques, the project seeks to develop an intrusion detection model that not only reduces false positives but also adapts to the evolving nature of cyber threats, thereby enhancing overall network security.
 
 ```python
