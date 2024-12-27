@@ -29,15 +29,15 @@ guess_the_password: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dyn
 
 It's a 64 bit ELF file. It's not stripped so we can see most of the original logic.
 
-![](Pasted%20image%2020241227230912.png)
+![](https://i.imgur.com/ddjThGk.png)
 
 Looking at the main function we can see that it's using the `check` function to validate the input.
 
-![](Pasted%20image%2020241227231254.png)
+![](https://i.imgur.com/xaaoBaC.png)
 Going forward, ghidra would be a useful tool to quickly identify the code.
 
 Looking at the `check` function in ghidra we get this:
-![](Pasted%20image%2020241227231944.png)
+![](https://i.imgur.com/vzdo5aX.png)
 
 Looking at the condition. It checks for three things
 1. If the length of the input is 10
@@ -45,6 +45,6 @@ Looking at the condition. It checks for three things
 3. if the 5th index is 9
 
 With this we can try the input `1999999999`
-![](Pasted%20image%2020241227232148.png)
+![](https://i.imgur.com/W2FGOYF.png)
 
 We get the correct password. 
