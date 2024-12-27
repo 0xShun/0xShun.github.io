@@ -25,14 +25,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Malware Analysis.md",
+                "file": "2024-12-27-Anomaly-Detection-in-High-Dimensional-Network-Traffic-Using-Isolation-Forest.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "0d19fd71d030a48f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-12-27-guess-the-password.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "24002d8b276ef158",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-12-27-nasm-crack.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -82,7 +106,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "9fd204ba70768097",
@@ -98,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Malware Analysis.md",
+                "file": "2024-12-27-nasm-crack.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Malware Analysis.md",
+                "file": "2024-12-27-nasm-crack.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +163,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Malware Analysis.md"
+                "file": "2024-12-27-nasm-crack.md"
               }
             }
           }
@@ -159,10 +184,25 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "38b83ae4add7756b",
+  "active": "b6d96c0fb2f60fc9",
   "lastOpenFiles": [
-    "2024-08-10-Carnage-TryHackMe.md",
+    "2024-12-27-guess-the-password.md",
+    "2024-12-27-nasm-crack.md",
+    "Pasted image 20241228001145.png",
+    "Pasted image 20241228001114.png",
+    "Pasted image 20241228000846.png",
+    "Pasted image 20241228000431.png",
+    "Pasted image 20241228000002.png",
+    "Pasted image 20241227233458.png",
+    "Pasted image 20241227232148.png",
+    "Pasted image 20241227231944.png",
+    "Pasted image 20241227231254.png",
+    "Pasted image 20241227231252.png",
+    "2024-12-27-Anomaly-Detection-in-High-Dimensional-Network-Traffic-Using-Isolation-Forest.md",
+    "2024-11-26-Global-Terrorism-in-Numbers-;-Insights-Through-Data-Analytics.md",
+    "2022-04-15-Basic-File-Exploit-picoCTF.md",
     "Malware Analysis.md",
+    "2024-08-10-Carnage-TryHackMe.md",
     "2024-08-10-Noxious-HTB.md",
     "2024-08-11-Reveal-Cyberdefenders-Writeup.md",
     "2024-08-25-Brutus-HackTheBox-Writeup.md",
@@ -171,9 +211,6 @@
     "EVSU Adventures.md",
     "2024-08-9-Reverse-ELF-THM.md",
     "2024-08-9-Bit-O-ASM-(1-&-2-&-3-&-4)-picoCTF.md",
-    "Pasted image 20240812182241.png",
-    "Pasted image 20240812172720.png",
-    "2022-04-15-Stego-picoCTF.md",
-    "Pasted image 20240812161053.png"
+    "2022-04-15-Stego-picoCTF.md"
   ]
 }
