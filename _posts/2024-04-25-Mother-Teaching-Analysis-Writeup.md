@@ -22,35 +22,35 @@ Co-Author: Daphnie N. Costa
 
 Eastern Visayas State University
 
-[**Project Background 3**](#_ahg4vbaugfix)\*\*
+[**Project Background 3**](#ahg4vbaugfix)\*\*
 
-[**Executive Summary 3**](#_kcwreo4i88eo)
+[**Executive Summary 3**](#kcwreo4i88eo)
 
-[**Insights Deep-Dive 4**](#_ms3iz33fof29)
+[**Insights Deep-Dive 4**](#ms3iz33fof29)
 
-[Linguistic Environment 4](#_ddyk4xhyfv95)
+[Linguistic Environment 4](#ddyk4xhyfv95)
 
-[Skill Prioritization versus Self-Efficacy 6](#_15jxscywfkqq)
+[Skill Prioritization versus Self-Efficacy 6](#15jxscywfkqq)
 
-[Instructional Engagement and Activity Types 8](#_fel6t5j4vtrl)
+[Instructional Engagement and Activity Types 8](#fel6t5j4vtrl)
 
-[Resource Utilization Patterns 10](#_sa8zpro848th)
+[Resource Utilization Patterns 10](#sa8zpro848th)
 
-[Autonomous Strategy Development 11](#_is5zyu3sf0ys)
+[Autonomous Strategy Development 11](#is5zyu3sf0ys)
 
-[Training Interest and Scheduling Constraints 12](#_rv212shx2utz)
+[Training Interest and Scheduling Constraints 12](#rv212shx2utz)
 
-[**Recommendations 13**](#_7k5239gycfkv)
+[**Recommendations 13**](#7k5239gycfkv)
 
-[**References 14**](#_ie0ju6idepex)
+[**References 14**](#ie0ju6idepex)
 
-# **Project Background** {#\_ahg4vbaugfix}
+# **Project Background** {#ahg4vbaugfix}
 
 Mothers of school-aged children participated in a survey to understand how they support English language development at home. Questions covered home language environments, target skills, educational background, frequency and types of teaching activities, materials used, sources of their own teaching knowledge, confidence levels, and appetite for formal training.
 
 #
 
-# **Executive Summary** {#\_kcwreo4i88eo}
+# **Executive Summary** {#kcwreo4i88eo}
 
 In this survey of 31 mothers, slightly less than half (15; 48.4%) reported speaking exclusively Waray-Waray at home, while the remaining 16 (51.6%) used a combination of Waray-Waray, Filipino, and/or English. A significant majority (16; 51.6%) expressed a desire for their children to attain comprehensive English proficiency—spanning speaking, listening, reading, writing, grammar, vocabulary, and pronunciation. Meanwhile, a smaller number (3; 9.7%) focused exclusively on speaking skills, and the rest indicated various skill combinations.
 
@@ -60,9 +60,9 @@ Notably, interest in structured support remains high—26 respondents (83.9%) in
 
 These findings underscore a strong maternal role in home-based English education and a clear demand for accessible, skill-targeted, and flexible training programs that empower mothers to effectively support their children's language development.
 
-# **Insights Deep-Dive** {#\_ms3iz33fof29}
+# **Insights Deep-Dive** {#ms3iz33fof29}
 
-## **Linguistic Environment** {#\_ddyk4xhyfv95}
+## **Linguistic Environment** {#ddyk4xhyfv95}
 
 ![](/assets/MotherTeaching/Aspose.Words.bbc7ba00-daed-4c76-859b-8bfc977d849e.001.png)
 
@@ -70,7 +70,7 @@ The survey reveals a linguistically diverse home environment. Of the 31 responde
 
 This near-even split underscores the need for any training or resource package to be responsive to both monolingual and multilingual contexts. Approaches should amplify the strengths of each setting—building deep literacy skills in Waray-Waray where it dominates, while also helping families manage the linguistic juggling act in multilingual homes without creating confusion or language overload.
 
-## **Skill Prioritization versus Self-Efficacy** {#\_15jxscywfkqq}
+## **Skill Prioritization versus Self-Efficacy** {#15jxscywfkqq}
 
 ![](/assets/MotherTeaching/Aspose.Words.bbc7ba00-daed-4c76-859b-8bfc977d849e.002.png)![](/assets/MotherTeaching/Aspose.Words.bbc7ba00-daed-4c76-859b-8bfc977d849e.003.png)
 
@@ -78,7 +78,7 @@ A strong majority of mothers—28 out of 31, or 90.3%—identified speaking as a
 
 ##
 
-## **Instructional Engagement and Activity Types** {#\_fel6t5j4vtrl}
+## **Instructional Engagement and Activity Types** {#fel6t5j4vtrl}
 
 ![](/assets/MotherTeaching/Aspose.Words.bbc7ba00-daed-4c76-859b-8bfc977d849e.004.png)
 
@@ -86,19 +86,19 @@ A strong majority of mothers—28 out of 31, or 90.3%—identified speaking as a
 
 Mothers remain highly engaged in their children's learning, with 12 (38.7%) assisting daily and another 12 (38.7%) doing so several times a week. This level of involvement suggests a strong commitment to supporting academic development at home. When it comes to the types of activities they engage in, most mothers tend to focus on receptive and supportive tasks. Watching English-language media is the most common activity, practiced by 22 mothers (71.0%). Helping with homework follows closely, with 19 mothers (61.3%) assisting in this way. Reading books together is also gaining traction, now done by 13 mothers (41.9%), an improvement from earlier figures. Informal and interactive activities such as singing English songs (9 mothers or 29.0%), having English conversations (10 mothers or 32.3%), and practicing vocabulary (12 mothers or 38.7%) are somewhat less prevalent. This pattern reveals an important opportunity for growth. While exposure to English is clearly emphasized, productive and interactive use of the language is less common. Integrating more output-focused strategies—like guided conversations, storytelling, or play-based speaking games—could help elevate language learning from passive intake to active use within the home environment.
 
-## **Resource Utilization Patterns** {#\_sa8zpro848th}
+## **Resource Utilization Patterns** {#sa8zpro848th}
 
 ![](/assets/MotherTeaching/Aspose.Words.bbc7ba00-daed-4c76-859b-8bfc977d849e.006.png)
 
 In terms of resources used for teaching or supporting their children's English learning, online materials remain the most frequently utilized, cited by 23 mothers (74.2%). Books and homemade materials are each used by 16 mothers (51.6%), showing a balanced reliance on both formal and improvised tools. School-provided materials also remain widely used, with 15 mothers (48.4%) incorporating them into their teaching routines. Educational apps are reported by 13 mothers (41.9%), suggesting a moderate integration of digital interactivity. This pattern of resource use suggests that while online content dominates, many mothers also take the initiative to supplement learning with materials they create themselves. Consequently, any support initiative should provide a mix of curated digital content and easy-to-follow, printable guides. These should include templates for low-tech activities that can be implemented without internet access, supporting both digitally savvy and resource-constrained households. Empowering mothers with flexible teaching tools ensures they are better equipped to support their children, regardless of their access to formal education materials.
 
-## **Autonomous Strategy Development** {#\_is5zyu3sf0ys}
+## **Autonomous Strategy Development** {#is5zyu3sf0ys}
 
 ![](/assets/MotherTeaching/Aspose.Words.bbc7ba00-daed-4c76-859b-8bfc977d849e.007.png)
 
 Over three-quarters of mothers—24 out of 31 respondents (77.4%)—report that they developed their own English-teaching techniques either from personal educational experience (15; 48.4%) or by consulting informal online resources (9; 29.0%), rather than through any formal instruction. Despite this resourcefulness, most of these self-taught mothers rate their teaching confidence as only moderate (23 of the full sample, 74.2%, scored themselves 3 or 4 out of 5). By offering structured training that (a) explicitly recognizes the 77.4% of mothers' existing, self-devised strategies and (b) introduces research-backed methodologies, programs can validate what is already working, replace less effective habits, and boost overall teaching confidence.
 
-## **Training Interest and Scheduling Constraints** {#\_rv212shx2utz}
+## **Training Interest and Scheduling Constraints** {#rv212shx2utz}
 
 ![](/assets/MotherTeaching/Aspose.Words.bbc7ba00-daed-4c76-859b-8bfc977d849e.008.png)
 
@@ -108,13 +108,13 @@ A clear majority—26 out of 31 mothers (83.9%)—expressed interest in receivin
 
 #
 
-# **Recommendations** {#\_7k5239gycfkv}
+# **Recommendations** {#7k5239gycfkv}
 
 To empower mothers as home-based English teachers while accommodating their scheduling constraints and building their confidence, we recommend a blended training model that integrates brief, mobile-accessible microlearning modules with periodic synchronous coaching. The microlearning units—3–5 minute videos, audio guides, and printable activity sheets—deliver focused instruction on interactive techniques such as dialogic reading and parental expansions, and can be accessed anytime mothers have a moment. These asynchronous lessons are complemented by live coaching sessions (via small-group video calls or community meet-ups) in which mothers practice new strategies, receive individualized feedback, and observe peer modeling to reinforce self-efficacy. Printable, low-tech resources ensure inclusivity for families with limited internet access. This approach is grounded in evidence that combining digital, self-guided parent training with live support enhances accessibility, completion rates, and equity (Grodberg & Smith, 2022), and that dialogic reading paired with parental expansion techniques significantly boosts late-talkers' expressive skills by increasing parental contingency during shared reading (Suttora et al., 2021).
 
 #
 
-# **References** {#\_ie0ju6idepex}
+# **References** {#ie0ju6idepex}
 
 Grodberg, D., & Smith, I. (2022). Scaling parent management training through digital and microlearning approaches. Frontiers in Psychology, 13, Article 934665. <https://doi.org/10.3389/fpsyg.2022.934665>
 
