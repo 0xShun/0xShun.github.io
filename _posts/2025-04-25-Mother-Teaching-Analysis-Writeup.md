@@ -26,16 +26,20 @@ Eastern Visayas State University
 <ul>
   <li><a href="#project-background">Project Background</a></li>
   <li><a href="#executive-summary">Executive Summary</a></li>
-  <li><a href="#insights-deep-dive">Insights Deep-Dive</a></li>
-  <li><a href="#linguistic-environment">Linguistic Environment</a></li>
-  <li><a href="#skill-prioritization">Skill Prioritization versus Self-Efficacy</a></li>
-  <li><a href="#instructional-engagement">Instructional Engagement and Activity Types</a></li>
-  <li><a href="#resource-utilization">Resource Utilization Patterns</a></li>
-  <li><a href="#autonomous-strategy">Autonomous Strategy Development</a></li>
-  <li><a href="#training-interest">Training Interest and Scheduling Constraints</a></li>
+  <li><a href="#insights-deep-dive">Insights Deep-Dive</a>
+    <ul>
+      <li><a href="#linguistic-environment">Linguistic Environment</a></li>
+      <li><a href="#skill-prioritization">Skill Prioritization versus Self-Efficacy</a></li>
+      <li><a href="#instructional-engagement">Instructional Engagement and Activity Types</a></li>
+      <li><a href="#resource-utilization">Resource Utilization Patterns</a></li>
+      <li><a href="#autonomous-strategy">Autonomous Strategy Development</a></li>
+      <li><a href="#training-interest">Training Interest and Scheduling Constraints</a></li>
+    </ul>
+  </li>
   <li><a href="#recommendations">Recommendations</a></li>
   <li><a href="#references">References</a></li>
 </ul>
+
 
 # Project Background {#project-background}
 
