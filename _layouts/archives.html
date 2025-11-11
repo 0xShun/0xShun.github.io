@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<div class="page-container">
+  <div class="hero" style="padding: 2rem;">
+    <h1 class="hero-title" style="font-size: 2.5rem;">{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="hero-description">{{ page.description }}</p>
+    {% endif %}
+  </div>
+
+  <section class="archive-section">
+    {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    
+    {% for year in postsByYear %}
+      <div style="margin-bottom: 3rem;">
+        <h2 style="color: var(--accent-primary); font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent-primary); padding-bottom: 0.5rem;">
+          {{ year.name }}
+        </h2>
+        
+        <ul class="archive-list">
+          {% for post in year.items %}
+            <li class="archive-item">
+              <div class="archive-date">{{ post.date | date: "%B %d, %Y" }}</div>
+              <h3 class="archive-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </h3>
+              {% if post.categories %}
+                <div style="margin-top: 0.5rem;">
+                  {% for category in post.categories %}
+                    <a href="{{ site.baseurl }}/categories/{{ category | slugify }}" class="category">{{ category }}</a>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </section>
+
+  {{ content }}
+</div>

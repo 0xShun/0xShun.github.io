@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  
+  <!-- SEO -->
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta name="author" content="{{ site.social.name }}">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.ico' | relative_url }}">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+  
+  <!-- Additional CSS from page -->
+  {% if page.additional_css %}
+    {% for css in page.additional_css %}
+      <link rel="stylesheet" href="{{ css | relative_url }}">
+    {% endfor %}
+  {% endif %}
+</head>
+<body>
+  <!-- 3D Wireframe Background -->
+  <canvas id="wireframe-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <!-- Theme Toggle (Blue Team vs Red Team) -->
+    <div class="navbar-left">
+      <button id="themeToggle" class="theme-toggle-btn blue-active" aria-label="Toggle Blue Team / Red Team">
+        <!-- Blue Shield Icon -->
+        <svg id="shieldIcon" class="theme-icon shield-icon active" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <!-- Red Sword Icon -->
+        <svg id="swordIcon" class="theme-icon sword-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline>
+          <line x1="13" y1="19" x2="19" y2="13"></line>
+          <line x1="16" y1="16" x2="20" y2="20"></line>
+          <line x1="19" y1="21" x2="21" y2="19"></line>
+        </svg>
+      </button>
+    </div>
+
+    <ul class="navbar-nav">
+      <li><a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' %}active{% endif %}">Home</a></li>
+      <li><a href="{{ '/about' | relative_url }}" class="nav-link {% if page.url contains '/about' %}active{% endif %}">About</a></li>
+      <li><a href="{{ '/posts' | relative_url }}" class="nav-link {% if page.url contains '/posts' %}active{% endif %}">Writeups</a></li>
+      <li><a href="{{ '/projects' | relative_url }}" class="nav-link {% if page.url contains '/projects' %}active{% endif %}">Projects</a></li>
+      <li><a href="{{ '/research' | relative_url }}" class="nav-link {% if page.url contains '/research' %}active{% endif %}">Research</a></li>
+      <li><a href="{{ '/tags' | relative_url }}" class="nav-link {% if page.url contains '/tags' %}active{% endif %}">Tags</a></li>
+      <li><a href="{{ '/archives' | relative_url }}" class="nav-link {% if page.url contains '/archives' %}active{% endif %}">Archives</a></li>
+    </ul>
+    
+    <div class="navbar-actions">
+      <button class="command-palette-btn" id="openCommandPalette" aria-label="Search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Command Palette Modal -->
+  <div id="commandPaletteModal" class="command-palette-modal">
+    <div class="command-palette-overlay" id="commandPaletteOverlay"></div>
+    <div class="command-palette-container">
+      <div class="command-palette-header">
+        <input 
+          type="text" 
+          id="commandPaletteInput" 
+          class="command-palette-input" 
+          placeholder="Type a command or search..."
+          autocomplete="off"
+        >
+        <button class="command-palette-close" id="closeCommandPalette">×</button>
+      </div>
+      
+      <div class="command-palette-content" id="commandPaletteContent">
+        <div class="command-palette-section">
+          <div class="command-palette-section-title">Pages</div>
+          <a href="{{ '/' | relative_url }}" class="command-palette-item">
+            <span>Home</span>
+          </a>
+          <a href="{{ '/posts' | relative_url }}" class="command-palette-item">
+            <span>Posts</span>
+          </a>
+          <a href="{{ '/projects' | relative_url }}" class="command-palette-item">
+            <span>Projects</span>
+          </a>
+          <a href="{{ '/research' | relative_url }}" class="command-palette-item">
+            <span>Research</span>
+          </a>
+          <a href="{{ '/categories' | relative_url }}" class="command-palette-item">
+            <span>Categories</span>
+          </a>
+          <a href="{{ '/tags' | relative_url }}" class="command-palette-item">
+            <span>Tags</span>
+          </a>
+          <a href="{{ '/archives' | relative_url }}" class="command-palette-item">
+            <span>Archives</span>
+          </a>
+          <a href="{{ '/about' | relative_url }}" class="command-palette-item">
+            <span>About</span>
+          </a>
+        </div>
+        
+        <div class="command-palette-section" id="searchResultsSection" style="display: none;">
+          <div class="command-palette-section-title">Search Results</div>
+          <div id="searchResults"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>
+      &copy; {{ 'now' | date: "%Y" }} <a href="{{ site.social.links[1] }}" target="_blank">{{ site.social.name }}</a>
+    </p>
+    <p>
+      <a href="{{ site.social.links[0] }}" target="_blank">Twitter</a> | 
+      <a href="{{ site.social.links[1] }}" target="_blank">GitHub</a> | 
+      <a href="mailto:{{ site.social.email }}">Email</a>
+    </p>
+  </footer>
+
+  <!-- Wireframe Animation Script -->
+  <script src="{{ '/assets/js/wireframe.js' | relative_url }}"></script>
+  
+  <!-- Theme Toggle Script -->
+  <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}"></script>
+  
+  <!-- Command Palette Script -->
+  <script src="{{ '/assets/js/command-palette.js' | relative_url }}"></script>
+  
+  <!-- Filter Script -->
+  <script src="{{ '/assets/js/filter.js' | relative_url }}"></script>
+  
+  <!-- Additional JS from page -->
+  {% if page.additional_js %}
+    {% for js in page.additional_js %}
+      <script src="{{ js | relative_url }}"></script>
+    {% endfor %}
+  {% endif %}
+</body>
+</html>

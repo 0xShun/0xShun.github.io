@@ -1,0 +1,14 @@
+# Staticman configuration
+comments:
+  allowedFields: ["name", "email", "url", "message"]
+  branch: "main"
+  commitMessage: "New comment by {fields.name}"
+  filename: "comment-{@timestamp}"
+  format: "yml"
+  moderation: false
+  path: "_data/comments/{options.slug}"
+  requiredFields: ["name", "message"]
+  transforms:
+    email: md5
+  reCaptcha:
+    enabled: false

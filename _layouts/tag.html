@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<div class="page-container" style="max-width: 900px; margin: 0 auto; padding: 2rem 1rem;">
+  <div class="hero" style="padding: 2rem; text-align: center;">
+    <h1 class="hero-title" style="font-size: 2.5rem;">Tag: {{ page.tag }}</h1>
+    <p class="hero-description">{{ site.tags[page.tag] | size }} post(s) tagged with "{{ page.tag }}"</p>
+  </div>
+
+  <section>
+    <div class="research-full-width">
+      {% for post in site.tags[page.tag] %}
+        <article class="card">
+          <h3 class="card-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h3>
+          
+          <div class="card-meta">
+            <span class="card-meta-item">
+              {{ post.date | date: "%B %d, %Y" }}
+            </span>
+            
+            {% if post.categories %}
+              <span class="card-meta-item">
+                {% for category in post.categories %}
+                  <a href="{{ site.baseurl }}/categories/{{ category | slugify }}" class="category">{{ category }}</a>
+                {% endfor %}
+              </span>
+            {% endif %}
+          </div>
+          
+          {% if post.tags %}
+            <div class="card-tags-top">
+              {% assign tag_count = post.tags | size %}
+              {% for tag in post.tags limit:3 %}
+                <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}" class="tag">{{ tag }}</a>
+              {% endfor %}
+              {% if tag_count > 3 %}
+                <span class="tag tag-more">+{{ tag_count | minus: 3 }}</span>
+              {% endif %}
+            </div>
+          {% endif %}
+          
+          {% if post.excerpt %}
+            <div class="card-excerpt">
+              {{ post.excerpt | strip_html | truncatewords: 30 }}
+            </div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+  
+  <div style="text-align: center; margin-top: 3rem;">
+    <a href="{{ '/tags' | relative_url }}" style="color: var(--accent-primary); text-decoration: none; font-weight: bold;">
+      ← Back to all tags
+    </a>
+  </div>
+</div>

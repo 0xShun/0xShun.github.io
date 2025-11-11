@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<div class="hero" style="padding: 2rem;">
+  <h1 class="hero-title" style="font-size: 2.5rem;">Categories</h1>
+  <p class="hero-description">Browse posts by category</p>
+</div>
+
+<section>
+  {% assign categories = site.categories | sort %}
+  
+  {% for category in categories %}
+    <div style="margin-bottom: 3rem;">
+      <h2 style="color: var(--accent-primary); font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent-primary); padding-bottom: 0.5rem;">
+        {{ category[0] }}
+        <span style="color: var(--text-secondary); font-size: 1.2rem; font-weight: normal;">
+          ({{ category[1] | size }})
+        </span>
+      </h2>
+      
+      <div class="grid">
+        {% for post in category[1] %}
+          <article class="card">
+            <h3 class="card-title">
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h3>
+            
+            <div class="card-meta">
+              <span class="card-meta-item">
+                {{ post.date | date: "%B %d, %Y" }}
+              </span>
+            </div>
+            
+            {% if post.excerpt %}
+              <div class="card-excerpt">
+                {{ post.excerpt | strip_html | truncatewords: 20 }}
+              </div>
+            {% endif %}
+            
+            {% if post.tags %}
+              <div style="margin-top: 1rem;">
+                {% for tag in post.tags limit:3 %}
+                  <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}" class="tag">{{ tag }}</a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{{ content }}
