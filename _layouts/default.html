@@ -66,6 +66,7 @@
       <li><a href="{{ '/about' | relative_url }}" class="nav-link {% if page.url contains '/about' %}active{% endif %}">About</a></li>
       <li><a href="{{ '/posts' | relative_url }}" class="nav-link {% if page.url contains '/posts' %}active{% endif %}">Writeups</a></li>
       <li><a href="{{ '/projects' | relative_url }}" class="nav-link {% if page.url contains '/projects' %}active{% endif %}">Projects</a></li>
+      <li><a href="{{ '/gallery' | relative_url }}" class="nav-link {% if page.url contains '/gallery' %}active{% endif %}">Gallery</a></li>
       <li><a href="{{ '/research' | relative_url }}" class="nav-link {% if page.url contains '/research' %}active{% endif %}">Research</a></li>
       <li><a href="{{ '/tags' | relative_url }}" class="nav-link {% if page.url contains '/tags' %}active{% endif %}">Tags</a></li>
       <li><a href="{{ '/archives' | relative_url }}" class="nav-link {% if page.url contains '/archives' %}active{% endif %}">Archives</a></li>
@@ -79,6 +80,7 @@
         <li><a href="{{ '/about' | relative_url }}" class="mobile-nav-link {% if page.url contains '/about' %}active{% endif %}">About</a></li>
         <li><a href="{{ '/posts' | relative_url }}" class="mobile-nav-link {% if page.url contains '/posts' %}active{% endif %}">Writeups</a></li>
         <li><a href="{{ '/projects' | relative_url }}" class="mobile-nav-link {% if page.url contains '/projects' %}active{% endif %}">Projects</a></li>
+        <li><a href="{{ '/gallery' | relative_url }}" class="mobile-nav-link {% if page.url contains '/gallery' %}active{% endif %}">Gallery</a></li>
         <li><a href="{{ '/research' | relative_url }}" class="mobile-nav-link {% if page.url contains '/research' %}active{% endif %}">Research</a></li>
         <li><a href="{{ '/tags' | relative_url }}" class="mobile-nav-link {% if page.url contains '/tags' %}active{% endif %}">Tags</a></li>
         <li><a href="{{ '/archives' | relative_url }}" class="mobile-nav-link {% if page.url contains '/archives' %}active{% endif %}">Archives</a></li>
@@ -206,6 +208,9 @@
   
   <!-- Typing Animation Script -->
   <script src="{{ '/assets/js/typing-animation.js' | relative_url }}"></script>
+  
+  <!-- Music Player Script (Home Page Only) -->
+  <script src="{{ '/assets/js/music-player.js' | relative_url }}"></script>
   
   <!-- Command Palette Script -->
   <script src="{{ '/assets/js/command-palette.js' | relative_url }}"></script>

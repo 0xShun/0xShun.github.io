@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+<div class="hero" style="padding: 3rem 2rem; text-align: center;">
+  <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 1rem;">Gallery</h1>
+  <p class="hero-description" style="font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+    A collection of moments, places, and memories captured through the lens
+  </p>
+</div>
+
+<!-- Filter Buttons -->
+<div class="gallery-filters" style="text-align: center; margin-bottom: 3rem;">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="events">Events</button>
+  <button class="filter-btn" data-filter="other">Other</button>
+  <button class="filter-btn" data-filter="personal">Personal</button>
+  <button class="filter-btn" data-filter="travel">Travel</button>
+</div>
+
+<!-- Gallery Grid -->
+<div class="gallery-grid" id="galleryGrid">
+  {% if site.data.gallery %}
+    {% for photo in site.data.gallery %}
+      <div class="gallery-item" data-category="{{ photo.category }}" data-image="{{ photo.image | relative_url }}">
+        <img 
+          src="{{ '/assets/img/gallery/' | append: photo.image | relative_url }}" 
+          alt="{{ photo.title }}"
+          loading="lazy"
+          class="gallery-image"
+        >
+        <div class="gallery-overlay">
+          <span class="gallery-title">{{ photo.title }}</span>
+          {% if photo.date %}
+            <span class="gallery-date">{{ photo.date | date: "%B %d, %Y" }}</span>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-secondary);">
+      <p style="font-size: 1.2rem;">📸 No photos yet!</p>
+      <p>Add your photos to <code>/assets/img/gallery/</code> and update <code>_data/gallery.yml</code></p>
+    </div>
+  {% endif %}
+</div>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img" alt="Full size image">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<!-- Gallery JavaScript -->
+<script src="{{ '/assets/js/gallery.js' | relative_url }}"></script>
+
+{{ content }}

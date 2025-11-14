@@ -1,0 +1,34 @@
+# Gallery Images Configuration
+# Add your photos here with their metadata
+# 
+# Format:
+# - image: filename.jpg (must be in /assets/img/gallery/)
+#   title: "Photo Title" (shows on hover)
+#   category: events|travel|personal|other
+#   date: 2024-12-27 (optional)
+
+# Example entries (replace with your actual photos):
+- image: example1.jpg
+  title: "Team Hackathon"
+  category: events
+  date: 2024-11-10
+
+- image: example2.jpg
+  title: "Mountain Hike"
+  category: travel
+  date: 2024-10-15
+
+- image: example3.jpg
+  title: "Coffee Break"
+  category: personal
+  date: 2024-09-20
+
+- image: example4.jpg
+  title: "Conference Talk"
+  category: events
+  date: 2024-08-05
+
+- image: example5.jpg
+  title: "Beach Sunset"
+  category: travel
+  date: 2024-07-12
