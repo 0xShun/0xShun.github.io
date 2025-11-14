@@ -9,10 +9,10 @@ layout: default
 
 <section>
   <!-- Tag Cloud -->
-  <div style="margin-bottom: 3rem; text-align: center;">
+  <div style="margin-bottom: 3rem; text-align: center; padding: 2rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
     {% assign tags = site.tags | sort %}
     {% for tag in tags %}
-      <a href="#{{ tag[0] | slugify }}" class="tag" style="font-size: {{ tag[1].size | times: 0.1 | plus: 0.9 }}rem;">
+      <a href="#{{ tag[0] | slugify }}" class="tag" style="font-size: {{ tag[1].size | times: 0.1 | plus: 0.9 }}rem; margin: 0.5rem;">
         {{ tag[0] }} ({{ tag[1] | size }})
       </a>
     {% endfor %}
@@ -20,7 +20,7 @@ layout: default
 
   <!-- Posts by Tag -->
   {% for tag in tags %}
-    <div id="{{ tag[0] | slugify }}" style="margin-bottom: 3rem;">
+    <div id="{{ tag[0] | slugify }}" style="margin-bottom: 4rem; scroll-margin-top: 100px;">
       <h2 style="color: var(--accent-primary); font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent-primary); padding-bottom: 0.5rem;">
         {{ tag[0] }}
         <span style="color: var(--text-secondary); font-size: 1.2rem; font-weight: normal;">
@@ -28,32 +28,36 @@ layout: default
         </span>
       </h2>
       
-      <div class="grid">
+      <div class="tags-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
         {% for post in tag[1] %}
-          <article class="card">
-            <h3 class="card-title">
+          <article class="card" style="height: 100%; display: flex; flex-direction: column;">
+            <h3 class="card-title" style="font-size: 1.25rem; margin-bottom: 0.75rem;">
               <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </h3>
             
-            <div class="card-meta">
+            <div class="card-meta" style="margin-bottom: 0.75rem; flex-wrap: wrap;">
               <span class="card-meta-item">
                 <span class="accent">📅</span>
-                {{ post.date | date: "%B %d, %Y" }}
+                {{ post.date | date: "%b %d, %Y" }}
               </span>
               
               {% if post.categories %}
                 <span class="card-meta-item">
                   <span class="accent">📁</span>
-                  {% for category in post.categories %}
+                  {% for category in post.categories limit:1 %}
                     <a href="{{ site.baseurl }}/categories/{{ category | slugify }}" class="category">{{ category }}</a>
                   {% endfor %}
+                  {% assign cat_count = post.categories | size %}
+                  {% if cat_count > 1 %}
+                    <span style="color: var(--text-secondary);">+{{ cat_count | minus: 1 }}</span>
+                  {% endif %}
                 </span>
               {% endif %}
             </div>
             
             {% if post.excerpt %}
-              <div class="card-excerpt">
-                {{ post.excerpt | strip_html | truncatewords: 20 }}
+              <div class="card-excerpt" style="flex: 1;">
+                {{ post.excerpt | strip_html | truncatewords: 15 }}
               </div>
             {% endif %}
           </article>
