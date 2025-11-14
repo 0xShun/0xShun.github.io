@@ -2,16 +2,26 @@
  * 3D Wireframe Cube Animation
  * Inspired by BuckeyeCTF 2025
  * Dynamically uses accent color from CSS variables
+ * Optimized for mobile devices
  */
 
 (function() {
   const canvas = document.getElementById('wireframe-canvas');
   if (!canvas) return;
 
+  // Check if user prefers reduced motion
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    canvas.style.display = 'none';
+    return;
+  }
+
+  // Detect mobile device and reduce complexity
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
   const ctx = canvas.getContext('2d');
   let width, height;
   const cubes = [];
-  const numCubes = 8;
+  const numCubes = isMobile ? 4 : 8; // Reduce cubes on mobile
 
   // Get current accent color from CSS variable
   function getAccentColor() {

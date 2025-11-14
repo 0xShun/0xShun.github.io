@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<!-- Project Layout - Not used since projects link directly to GitHub -->
+<div class="page-container">
+  <div class="hero" style="padding: 2rem;">
+    <h1 class="hero-title" style="font-size: 2.5rem;">{{ page.title }}</h1>
+    <p class="hero-description">{{ page.description }}</p>
+  </div>
+
+  <div class="page-content">
+    <div style="text-align: center; padding: 3rem 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); margin: 2rem 0;">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" style="margin-bottom: 1rem;">
+        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+      </svg>
+      
+      <h2 style="color: var(--accent-primary); margin-bottom: 1rem;">View This Project on GitHub</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        This project is hosted on GitHub. Click the button below to view the full repository with code, documentation, and more details.
+      </p>
+      
+      <a href="{{ page.repo_url }}" target="_blank" rel="noopener noreferrer" class="accent-bg" style="display: inline-block; padding: 1rem 2rem; text-decoration: none; border-radius: var(--radius-md); font-weight: bold; transition: all 0.3s ease; box-shadow: var(--shadow-md);">
+        Open on GitHub →
+      </a>
+    </div>
+
+    {% if page.technologies %}
+      <div style="margin-top: 2rem;">
+        <h3 style="color: var(--accent-primary); margin-bottom: 1rem;">Technologies Used</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          {% for tech in page.technologies %}
+            <span class="tech-tag">{{ tech }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {{ content }}
+  </div>
+</div>

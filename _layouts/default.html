@@ -36,6 +36,13 @@
 
   <!-- Navigation Bar -->
   <nav class="navbar">
+    <!-- Mobile Hamburger Menu (visible on mobile only) -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
     <!-- Theme Toggle (Blue Team vs Red Team) -->
     <div class="navbar-left">
       <button id="themeToggle" class="theme-toggle-btn blue-active" aria-label="Toggle Blue Team / Red Team">
@@ -53,6 +60,7 @@
       </button>
     </div>
 
+    <!-- Desktop Navigation -->
     <ul class="navbar-nav">
       <li><a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' %}active{% endif %}">Home</a></li>
       <li><a href="{{ '/about' | relative_url }}" class="nav-link {% if page.url contains '/about' %}active{% endif %}">About</a></li>
@@ -61,10 +69,34 @@
       <li><a href="{{ '/research' | relative_url }}" class="nav-link {% if page.url contains '/research' %}active{% endif %}">Research</a></li>
       <li><a href="{{ '/tags' | relative_url }}" class="nav-link {% if page.url contains '/tags' %}active{% endif %}">Tags</a></li>
       <li><a href="{{ '/archives' | relative_url }}" class="nav-link {% if page.url contains '/archives' %}active{% endif %}">Archives</a></li>
+      <li><a href="https://tryhackme.com/p/5hun" class="nav-link" target="_blank" rel="noopener noreferrer">TryHackMe</a></li>
     </ul>
     
+    <!-- Mobile Dropdown Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-menu-nav">
+        <li><a href="{{ '/' | relative_url }}" class="mobile-nav-link {% if page.url == '/' %}active{% endif %}">Home</a></li>
+        <li><a href="{{ '/about' | relative_url }}" class="mobile-nav-link {% if page.url contains '/about' %}active{% endif %}">About</a></li>
+        <li><a href="{{ '/posts' | relative_url }}" class="mobile-nav-link {% if page.url contains '/posts' %}active{% endif %}">Writeups</a></li>
+        <li><a href="{{ '/projects' | relative_url }}" class="mobile-nav-link {% if page.url contains '/projects' %}active{% endif %}">Projects</a></li>
+        <li><a href="{{ '/research' | relative_url }}" class="mobile-nav-link {% if page.url contains '/research' %}active{% endif %}">Research</a></li>
+        <li><a href="{{ '/tags' | relative_url }}" class="mobile-nav-link {% if page.url contains '/tags' %}active{% endif %}">Tags</a></li>
+        <li><a href="{{ '/archives' | relative_url }}" class="mobile-nav-link {% if page.url contains '/archives' %}active{% endif %}">Archives</a></li>
+        <li><a href="https://tryhackme.com/p/5hun" class="mobile-nav-link" target="_blank" rel="noopener noreferrer">TryHackMe</a></li>
+      </ul>
+    </div>
+    
     <div class="navbar-actions">
-      <button class="command-palette-btn" id="openCommandPalette" aria-label="Search">
+      <!-- Desktop Search Button -->
+      <button class="command-palette-btn desktop-search" id="openCommandPalette" aria-label="Search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </button>
+      
+      <!-- Mobile Simple Search Button -->
+      <button class="mobile-search-btn" id="openMobileSearch" aria-label="Search">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"></circle>
           <path d="m21 21-4.35-4.35"></path>
@@ -125,6 +157,27 @@
     </div>
   </div>
 
+  <!-- Mobile Simple Search Modal -->
+  <div id="mobileSearchModal" class="mobile-search-modal">
+    <div class="mobile-search-overlay" id="mobileSearchOverlay"></div>
+    <div class="mobile-search-container">
+      <div class="mobile-search-header">
+        <input 
+          type="text" 
+          id="mobileSearchInput" 
+          class="mobile-search-input" 
+          placeholder="Search..."
+          autocomplete="off"
+        >
+        <button class="mobile-search-close" id="closeMobileSearch">×</button>
+      </div>
+      
+      <div class="mobile-search-results" id="mobileSearchResults">
+        <div class="mobile-search-hint">Type to search posts, pages, and more...</div>
+      </div>
+    </div>
+  </div>
+
   <!-- Main Content -->
   <main class="main-content">
     {{ content }}
@@ -147,6 +200,12 @@
   
   <!-- Theme Toggle Script -->
   <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}"></script>
+  
+  <!-- Mobile Menu and Gestures Script -->
+  <script src="{{ '/assets/js/mobile-menu.js' | relative_url }}"></script>
+  
+  <!-- Typing Animation Script -->
+  <script src="{{ '/assets/js/typing-animation.js' | relative_url }}"></script>
   
   <!-- Command Palette Script -->
   <script src="{{ '/assets/js/command-palette.js' | relative_url }}"></script>

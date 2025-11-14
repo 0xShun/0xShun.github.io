@@ -2,9 +2,21 @@
 layout: default
 ---
 
-<!-- Hero Section -->
+<!-- Hero Section with Side-by-Side Layout -->
 <div class="hero">
-  <img src="{{ '/assets/img/hacker.png' | relative_url }}" alt="Hacker Logo" class="hero-logo">
+  <div class="hero-split-container">
+    <!-- Left: Logo -->
+    <div class="hero-logo-section">
+      <img src="{{ '/assets/img/hacker.png' | relative_url }}" alt="Hacker Logo" class="hero-logo" loading="eager">
+    </div>
+    
+    <!-- Right: Typing Code Animation -->
+    <div class="hero-code-section">
+      <pre class="typing-code"><code id="typingCode"></code></pre>
+    </div>
+  </div>
+  
+  <!-- Title and Description Below -->
   <h1 class="hero-title" data-text="{{ site.title }}">{{ site.title }}</h1>
   <p class="hero-tagline">{{ site.tagline }}</p>
   <p class="hero-description">{{ site.description }}</p>
