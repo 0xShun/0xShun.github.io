@@ -27,9 +27,93 @@
 #   title: "Conference Talk"
 #   category: events
 #   date: 2024-08-05
-#
-# - image: example5.jpg
-#   title: "Beach Sunset"
-#   category: travel
-#   date: 2024-07-12
+ 
+# Gallery entries generated from files in /assets/img/gallery
+# Titles use the image filename (without extension). Category set to 'other' by default.
+- image: Baguio_trip.jpeg
+  title: "Baguio_trip"
+  category: travel
+  date: 2025-05-05
+
+- image: Hack4Gov-2024.jpeg
+  title: "Hack4Gov-2024"
+  category: events
+  date: 2024-11-10
+
+- image: Just-a-random-walk.jpeg
+  title: "Just-a-random-walk"
+  category: travel
+  date: 2023-02-05
+
+- image: byte-forward-hackathon.jpeg
+  title: "byte-forward-hackathon"
+  category: events  
+  date: 2025-06-05
+
+- image: cafe.jpeg
+  title: "cafe"
+  category: personal
+  date: 2025-07-02
+
+- image: colorful-balays.jpeg
+  title: "colorful-balays"
+  category: travel  
+  date: 2025-07-10
+
+- image: cramming.jpeg
+  title: "cramming"
+  category: personal
+  date: 2025-11-05
+
+- image: found-good-burger-place.jpeg
+  title: "found-good-burger-place"
+  category: personal
+  date: 2025-11-15 
+
+- image: h4g-merch.jpeg
+  title: "h4g-merch"
+  category: events
+  date: 2024-11-10
+
+- image: hackathon-compe.jpeg
+  title: "hackathon-compe"
+  category: events
+  date: 2025-06-05
+
+- image: hackathon-demo.jpeg
+  title: "hackathon-demo"
+  category: events
+  date: 2025-06-21
+
+- image: nerds.jpeg
+  title: "nerds"
+  category: events
+  date: 2025-06-17
+
+- image: night_market.jpeg
+  title: "night_market"
+  category: travel
+  date: 2023-08-05
+
+- image: park.jpeg
+  title: "park"
+  category: travel
+  date: 2025-05-05
+
+- image: puno.jpeg
+  title: "puno"
+  category: travel
+  date: 2025-05-05
+
+- image: sand_dune_tragedy.jpg
+  title: "sand_dune_tragedy"
+  category: travel
+  date: 2025-05-05
+
+- image: strawberry.jpeg
+  title: "strawberry"
+  category: travel
+  date: 2025-05-05
+  
+
 
