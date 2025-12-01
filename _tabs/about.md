@@ -40,6 +40,10 @@ I'm currently an undergrad student, soon to be masters student🤞, who is passi
 
 ### Achievements 🏆
 
+#### Champion, HackForGov Regionals 2025
+
+> Champion for the regional Hack4Gov, Top 1 Individually. Represented Region 8 in the National Leg
+
 #### Champion, Byte Forward Hackathon 2025
 
 > Competed as team captain of Team Excelr8 in the first-ever Byte Forward hackathon Visayas leg at Palo, Leyte. Our team placed first, winning 50,000 pesos and qualified to represent our region at the national stage.
