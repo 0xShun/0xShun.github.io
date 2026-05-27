@@ -858,97 +858,19 @@ body.modal-open {
   border-radius: var(--radius-full);
   border: 3px solid var(--accent-primary);
   box-shadow: var(--shadow-sm);
-  animation: float 3s ease-in-out infinite;
-  will-change: transform;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
 }
 
 .hero-title {
   font-size: var(--font-size-3xl);
   font-weight: bold;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 30px var(--accent-glow);
-  animation: glitch 3s infinite;
+  color: var(--text-primary);
   position: relative;
-  will-change: transform;
 }
 
 .hero-title::before,
 .hero-title::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero-title::before {
-  animation: glitch-1 2s infinite;
-  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-}
-
-.hero-title::after {
-  animation: glitch-2 2s infinite;
-  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
-}
-
-@keyframes glitch {
-  0%, 100% {
-    transform: translate(0);
-  }
-  33% {
-    transform: translate(-2px, 2px);
-  }
-  66% {
-    transform: translate(2px, -2px);
-  }
-}
-
-@keyframes glitch-1 {
-  0%, 100% {
-    transform: translate(0);
-    opacity: 1;
-  }
-  33% {
-    transform: translate(-4px, 0);
-    opacity: 0.8;
-  }
-  66% {
-    transform: translate(4px, 0);
-    opacity: 0.9;
-  }
-}
-
-@keyframes glitch-2 {
-  0%, 100% {
-    transform: translate(0);
-    opacity: 1;
-  }
-  33% {
-    transform: translate(3px, 0);
-    opacity: 0.9;
-  }
-  66% {
-    transform: translate(-3px, 0);
-    opacity: 0.8;
-  }
+  display: none;
 }
 
 .hero-tagline {
@@ -1106,18 +1028,19 @@ body.modal-open {
   transform: translateX(-3px);
   transition: transform 0.3s ease;
   will-change: transform;
+  display: none;
 }
 
 .card:hover,
 .card:active {
-  border-color: var(--border-accent);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  border-color: var(--border-color);
+  box-shadow: 0 12px 35px var(--shadow), 0 0 25px rgba(69, 83, 239, 0.4);
+  transform: translateY(-5px);
 }
 
 .card:hover::before,
 .card:active::before {
-  transform: translateX(0);
+  transform: translateX(-3px);
 }
 
 /* ============================================

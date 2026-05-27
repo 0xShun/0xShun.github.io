@@ -48,7 +48,6 @@ permalink: /projects/
         
         <div class="card-meta">
           <span class="card-meta-item">
-            <span class="accent">📅</span>
             {{ project.date | date: "%B %Y" }}
           </span>
           
@@ -57,14 +56,12 @@ permalink: /projects/
               <!-- Multiple categories (array) -->
               {% for cat in project.category %}
                 <span class="card-meta-item category-tag">
-                  <span class="accent">📁</span>
                   {{ cat }}
                 </span>
               {% endfor %}
             {% else %}
               <!-- Single category (string) -->
               <span class="card-meta-item category-tag">
-                <span class="accent">📁</span>
                 {{ project.category }}
               </span>
             {% endif %}

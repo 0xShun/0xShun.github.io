@@ -9,12 +9,9 @@
   const canvas = document.getElementById('wireframe-canvas');
   if (!canvas) return;
 
-  // Check if user prefers reduced motion
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) {
-    canvas.style.display = 'none';
-    return;
-  }
+  // Disable wireframe animation - keep background plain black
+  canvas.style.display = 'none';
+  return;
 
   // Detect mobile device and reduce complexity
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;

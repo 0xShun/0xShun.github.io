@@ -37,13 +37,11 @@ layout: default
             
             <div class="card-meta" style="margin-bottom: 0.75rem; flex-wrap: wrap;">
               <span class="card-meta-item">
-                <span class="accent">📅</span>
                 {{ post.date | date: "%b %d, %Y" }}
               </span>
               
               {% if post.categories %}
                 <span class="card-meta-item">
-                  <span class="accent">📁</span>
                   {% for category in post.categories limit:1 %}
                     <a href="{{ site.baseurl }}/categories/{{ category | slugify }}" class="category">{{ category }}</a>
                   {% endfor %}

@@ -11,26 +11,26 @@ order: 4
 <head>
   <meta name="google-site-verification" content="NejdknhKiHzLZiCyOKd_SAwShQnvov1fOSF8EnTd5wQ" />
 </head>
-#  👋🏼 I'm Shun
+#  I'm Shun
 
 <br>
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=ffffff&lines=Security+Researcher;Software+Engineer;DFIR+Aspirant;Python+Developer;Network+Engineer;Electronics+Nerd;)](https://git.io/typing-svg)
 
-I'm currently an undergrad student, soon to be masters student🤞, who is passionate about tech and curious on how systems work. My focus is on Digital Forensics & Incident Response, IoT, Data Analysis, Reverse Engineering, and Threat Intelligence. This site serves as a chill space for articles on security research, technical blogs, and CTF write-ups.
+I'm currently an undergrad student, soon to be masters student, who is passionate about tech and curious on how systems work. My focus is on Digital Forensics & Incident Response, IoT, Data Analysis, Reverse Engineering, and Threat Intelligence. This site serves as a chill space for articles on security research, technical blogs, and CTF write-ups.
 
-### Socials 💬
+### Socials
 
 <table>
     <tr style="background-color:transparent">
         <td valign="top" width="100%">
-         💬 <a href="mailto:shawnmichaelsudaria@proton.me">Protonmail</a>
+         <a href="mailto:shawnmichaelsudaria@proton.me">Protonmail</a>
             <br>
-         🐤 <a href="https://x.com/__5hun__">Twitter</a>
+         <a href="https://x.com/__5hun__">Twitter</a>
             <br>
-         ⚡ <a href="https://www.linkedin.com/in/shawn-michael-sudaria-397a33319/">LinkedIn</a>
+         <a href="https://www.linkedin.com/in/shawn-michael-sudaria-397a33319/">LinkedIn</a>
             <br>
-         🎯 <a href="https://tryhackme.com/p/5hun">TryHackMe</a>
+         <a href="https://tryhackme.com/p/5hun">TryHackMe</a>
             <br>
 </td>
 </tr>
@@ -38,7 +38,7 @@ I'm currently an undergrad student, soon to be masters student🤞, who is passi
 
 ---
 
-### Achievements 🏆
+### Achievements
 
 #### Champion, HackForGov Regionals 2025
 
