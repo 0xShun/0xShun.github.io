@@ -5,8 +5,8 @@
    Mobile-First Responsive Design
    ============================================ */
 
-/* Import Space Grotesk Cyberpunk Font */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* Import Fira Code Monospace Cyberpunk Font */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap');
 
 :root {
   --bg-primary: #000000;
@@ -72,7 +72,7 @@ html {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Space Grotesk', 'Courier New', 'Monaco', 'Consolas', monospace;
+  font-family: 'Fira Code', 'Courier New', 'Monaco', 'Consolas', monospace;
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
@@ -88,16 +88,16 @@ body.modal-open {
 
 /* ============================================
    Cyberpunk Typography
-   Space Grotesk Font
+   Fira Code Font
    ============================================ */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Space Grotesk', 'Courier New', monospace;
+  font-family: 'Fira Code', 'Courier New', monospace;
   font-weight: 700;
   letter-spacing: 0.05em;
 }
 
 p, span, a, li, div {
-  font-family: 'Space Grotesk', 'Courier New', monospace;
+  font-family: 'Fira Code', 'Courier New', monospace;
 }
 
 a {
@@ -387,7 +387,7 @@ a:hover {
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 1rem;
-  font-family: 'Space Grotesk', monospace;
+  font-family: 'Fira Code', monospace;
   font-weight: 600;
   letter-spacing: 0.05em;
   transition: color 0.3s ease, text-shadow 0.3s ease;
@@ -492,10 +492,15 @@ a:hover {
   position: relative;
   width: 90%;
   max-width: 600px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--text-secondary);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-2xl);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 2px solid rgba(69, 83, 239, 0.3);
+  border-radius: 12px;
+  box-shadow: 
+    0 8px 32px rgba(31, 38, 135, 0.2),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.1),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.3);
   overflow: hidden;
   animation: slideDown 0.3s ease;
 }
@@ -544,12 +549,40 @@ a:hover {
   }
 }
 
+@keyframes glitch-anim {
+  0% {
+    transform: translate(0);
+    clip-path: inset(0 0 0 0);
+  }
+  20% {
+    transform: translate(-5px, 3px);
+    clip-path: inset(50% 0 20% 0);
+  }
+  40% {
+    transform: translate(3px, -2px);
+    clip-path: inset(20% 0 60% 0);
+  }
+  60% {
+    transform: translate(-4px, 2px);
+    clip-path: inset(80% 0 5% 0);
+  }
+  80% {
+    transform: translate(4px, -3px);
+    clip-path: inset(30% 0 45% 0);
+  }
+  100% {
+    transform: translate(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
 .command-palette-header {
   display: flex;
   align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid var(--border-color);
-  background: var(--bg-card);
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid rgba(69, 83, 239, 0.2);
+  background: linear-gradient(135deg, rgba(69, 83, 239, 0.08), rgba(255, 255, 255, 0.02));
 }
 
 .command-palette-input {
@@ -558,7 +591,7 @@ a:hover {
   border: none;
   color: var(--text-primary);
   font-size: 1.1rem;
-  font-family: 'Space Grotesk', monospace;
+  font-family: 'Fira Code', monospace;
   font-weight: 500;
   letter-spacing: 0.05em;
   outline: none;
@@ -566,6 +599,10 @@ a:hover {
 
 .command-palette-input::placeholder {
   color: var(--text-secondary);
+}
+
+.command-palette-input:focus {
+  text-shadow: 0 0 10px rgba(69, 83, 239, 0.5);
 }
 
 .command-palette-close {
@@ -580,12 +617,14 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   line-height: 1;
 }
 
 .command-palette-close:hover {
-  color: var(--text-primary);
+  color: var(--accent-primary);
+  text-shadow: 0 0 15px rgba(69, 83, 239, 0.7);
+  transform: scale(1.1);
 }
 
 .command-palette-content {
@@ -630,9 +669,10 @@ a:hover {
   padding: 0.75rem 1rem;
   color: var(--text-primary);
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease, text-shadow 0.2s ease;
   cursor: pointer;
   position: relative;
+  border-bottom: 1px solid rgba(69, 83, 239, 0.1);
 }
 
 .command-palette-item::before {
@@ -641,25 +681,29 @@ a:hover {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 3px;
+  width: 2px;
   background: var(--accent-primary);
   transform: scaleY(0);
   transition: transform 0.2s ease;
+  box-shadow: 0 0 10px rgba(69, 83, 239, 0.5);
 }
 
 .command-palette-item:hover {
-  background: var(--bg-card);
+  background: rgba(69, 83, 239, 0.05);
   padding-left: 1.5rem;
+  text-shadow: 0 0 10px rgba(69, 83, 239, 0.5);
 }
 
 .command-palette-item:hover::before {
   transform: scaleY(1);
+  box-shadow: 0 0 20px rgba(69, 83, 239, 0.8);
 }
 
 .command-palette-item.selected {
-  background: var(--bg-card);
-  border-left: 3px solid var(--accent-primary);
+  background: rgba(69, 83, 239, 0.1);
+  border-left: 2px solid var(--accent-primary);
   padding-left: 1.5rem;
+  text-shadow: 0 0 10px rgba(69, 83, 239, 0.5);
 }
 
 .command-icon {
@@ -1073,22 +1117,27 @@ a:hover {
 
 /* ============================================
    Cards & Containers
-   Cyberpunk Metal Plate Design
+   Glassmorphism Design with Cyberpunk Accents
    ============================================ */
 .card {
-  background: rgba(10, 10, 10, 0.95);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   /* Asymmetrical metal plate-like border */
-  border-top: 3px solid var(--accent-primary);
-  border-left: 2px solid var(--accent-primary);
-  border-right: 1px solid var(--accent-primary);
-  border-bottom: 2px solid var(--accent-primary);
-  border-radius: 0;
+  border-top: 3px solid rgba(69, 83, 239, 0.3);
+  border-left: 2px solid rgba(69, 83, 239, 0.25);
+  border-right: 1px solid rgba(69, 83, 239, 0.15);
+  border-bottom: 2px solid rgba(69, 83, 239, 0.2);
+  border-radius: 12px;
   padding: var(--spacing-md);
   margin-bottom: var(--spacing-md);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-xl), 2px 2px 0 rgba(69, 83, 239, 0.3), -1px -1px 0 rgba(69, 83, 239, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(31, 38, 135, 0.15),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.1),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.2);
   /* Optimize for touch */
   -webkit-tap-highlight-color: rgba(69, 83, 239, 0.2);
 }
@@ -1109,9 +1158,19 @@ a:hover {
 
 .card:hover,
 .card:active {
-  border-color: var(--accent-primary);
-  box-shadow: 0 12px 35px var(--shadow), 0 0 25px rgba(69, 83, 239, 0.4), 3px 3px 0 rgba(69, 83, 239, 0.4), -2px -2px 0 rgba(69, 83, 239, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  border-top: 3px solid rgba(69, 83, 239, 0.5);
+  border-left: 2px solid rgba(69, 83, 239, 0.45);
+  border-right: 1px solid rgba(69, 83, 239, 0.35);
+  border-bottom: 2px solid rgba(69, 83, 239, 0.4);
+  box-shadow: 
+    0 12px 45px rgba(69, 83, 239, 0.25),
+    0 0 35px rgba(69, 83, 239, 0.3),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.15),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.3);
   transform: translateY(-5px);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 .card:hover::before,
@@ -1121,24 +1180,41 @@ a:hover {
 
 /* ============================================
    Project Cards
-   Cyberpunk Metal Plate Design
+   Glassmorphism Design with Cyberpunk Accents
    ============================================ */
 .project-card {
   transition: all 0.3s ease;
   position: relative;
   cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   /* Asymmetrical metal plate-like border */
-  border-top: 3px solid var(--accent-primary);
-  border-left: 2px solid var(--accent-primary);
-  border-right: 1px solid var(--accent-primary);
-  border-bottom: 2px solid var(--accent-primary);
-  border-radius: 0;
+  border-top: 3px solid rgba(69, 83, 239, 0.3);
+  border-left: 2px solid rgba(69, 83, 239, 0.25);
+  border-right: 1px solid rgba(69, 83, 239, 0.15);
+  border-bottom: 2px solid rgba(69, 83, 239, 0.2);
+  border-radius: 12px;
+  box-shadow: 
+    0 8px 32px rgba(31, 38, 135, 0.15),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.1),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 35px rgba(69, 83, 239, 0.3), 3px 3px 0 rgba(69, 83, 239, 0.4), -2px -2px 0 rgba(69, 83, 239, 0.3);
-  border-color: var(--accent-primary);
+  background: rgba(255, 255, 255, 0.08);
+  border-top: 3px solid rgba(69, 83, 239, 0.5);
+  border-left: 2px solid rgba(69, 83, 239, 0.45);
+  border-right: 1px solid rgba(69, 83, 239, 0.35);
+  border-bottom: 2px solid rgba(69, 83, 239, 0.4);
+  box-shadow: 
+    0 12px 45px rgba(69, 83, 239, 0.25),
+    0 0 35px rgba(69, 83, 239, 0.3),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.15),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 .project-card:active {
@@ -1205,7 +1281,7 @@ a:hover {
   font-size: var(--font-size-xl);
   margin-bottom: 0.5rem;
   color: var(--text-primary);
-  font-family: 'Space Grotesk', monospace;
+  font-family: 'Fira Code', monospace;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
