@@ -1,8 +1,12 @@
 /* ============================================
    BuckeyeCTF-Inspired Dark Theme
+   Cyberpunk Aesthetic with Space Grotesk
    Accent Color: #4553ef (Blue)
    Mobile-First Responsive Design
    ============================================ */
+
+/* Import Space Grotesk Cyberpunk Font */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
   --bg-primary: #000000;
@@ -68,7 +72,7 @@ html {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+  font-family: 'Space Grotesk', 'Courier New', 'Monaco', 'Consolas', monospace;
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
@@ -80,6 +84,29 @@ body {
 
 body.modal-open {
   overflow: hidden;
+}
+
+/* ============================================
+   Cyberpunk Typography
+   Space Grotesk Font
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', 'Courier New', monospace;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+p, span, a, li, div {
+  font-family: 'Space Grotesk', 'Courier New', monospace;
+}
+
+a {
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-primary);
+  text-shadow: 0 0 10px rgba(69, 83, 239, 0.5);
 }
 
 /* Reduced motion for accessibility */
@@ -360,13 +387,17 @@ body.modal-open {
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 1rem;
-  transition: color 0.3s ease;
+  font-family: 'Space Grotesk', monospace;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
   position: relative;
 }
 
 .nav-link:hover,
 .nav-link.active {
   color: var(--text-primary);
+  text-shadow: 0 0 10px rgba(69, 83, 239, 0.5);
 }
 
 .nav-link::after {
@@ -441,6 +472,11 @@ body.modal-open {
 
 .command-palette-modal.active {
   display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.command-palette-modal.closing {
+  animation: fadeOut 0.3s ease;
 }
 
 .command-palette-overlay {
@@ -464,6 +500,10 @@ body.modal-open {
   animation: slideDown 0.3s ease;
 }
 
+.command-palette-modal.closing .command-palette-container {
+  animation: slideUp 0.3s ease;
+}
+
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -472,6 +512,35 @@ body.modal-open {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 
@@ -489,7 +558,9 @@ body.modal-open {
   border: none;
   color: var(--text-primary);
   font-size: 1.1rem;
-  font-family: inherit;
+  font-family: 'Space Grotesk', monospace;
+  font-weight: 500;
+  letter-spacing: 0.05em;
   outline: none;
 }
 
@@ -1002,17 +1073,22 @@ body.modal-open {
 
 /* ============================================
    Cards & Containers
+   Cyberpunk Metal Plate Design
    ============================================ */
 .card {
   background: rgba(10, 10, 10, 0.95);
-  border: 0;
-  border-radius: var(--radius-lg);
+  /* Asymmetrical metal plate-like border */
+  border-top: 3px solid var(--accent-primary);
+  border-left: 2px solid var(--accent-primary);
+  border-right: 1px solid var(--accent-primary);
+  border-bottom: 2px solid var(--accent-primary);
+  border-radius: 0;
   padding: var(--spacing-md);
   margin-bottom: var(--spacing-md);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-xl);
+  box-shadow: var(--shadow-xl), 2px 2px 0 rgba(69, 83, 239, 0.3), -1px -1px 0 rgba(69, 83, 239, 0.2);
   /* Optimize for touch */
   -webkit-tap-highlight-color: rgba(69, 83, 239, 0.2);
 }
@@ -1033,8 +1109,8 @@ body.modal-open {
 
 .card:hover,
 .card:active {
-  border-color: var(--border-color);
-  box-shadow: 0 12px 35px var(--shadow), 0 0 25px rgba(69, 83, 239, 0.4);
+  border-color: var(--accent-primary);
+  box-shadow: 0 12px 35px var(--shadow), 0 0 25px rgba(69, 83, 239, 0.4), 3px 3px 0 rgba(69, 83, 239, 0.4), -2px -2px 0 rgba(69, 83, 239, 0.3);
   transform: translateY(-5px);
 }
 
@@ -1045,16 +1121,23 @@ body.modal-open {
 
 /* ============================================
    Project Cards
+   Cyberpunk Metal Plate Design
    ============================================ */
 .project-card {
   transition: all 0.3s ease;
   position: relative;
   cursor: pointer;
+  /* Asymmetrical metal plate-like border */
+  border-top: 3px solid var(--accent-primary);
+  border-left: 2px solid var(--accent-primary);
+  border-right: 1px solid var(--accent-primary);
+  border-bottom: 2px solid var(--accent-primary);
+  border-radius: 0;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(69, 83, 239, 0.3);
+  box-shadow: 0 12px 35px rgba(69, 83, 239, 0.3), 3px 3px 0 rgba(69, 83, 239, 0.4), -2px -2px 0 rgba(69, 83, 239, 0.3);
   border-color: var(--accent-primary);
 }
 
@@ -1122,12 +1205,16 @@ body.modal-open {
   font-size: var(--font-size-xl);
   margin-bottom: 0.5rem;
   color: var(--text-primary);
+  font-family: 'Space Grotesk', monospace;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .card-title a {
   color: var(--text-primary);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
   /* Ensure clickable area is large enough for touch */
   display: inline-block;
   min-height: 44px;
@@ -1137,6 +1224,7 @@ body.modal-open {
 .card-title a:hover,
 .card-title a:active {
   color: var(--accent-primary);
+  text-shadow: 0 0 10px rgba(69, 83, 239, 0.7);
 }
 
 .card-meta {

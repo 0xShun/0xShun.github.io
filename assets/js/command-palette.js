@@ -51,6 +51,7 @@
   // Open modal
   function openModal() {
     modal.classList.add('active');
+    modal.classList.remove('closing');
     document.body.classList.add('modal-open');
     input.focus();
     // Show default pages
@@ -58,14 +59,20 @@
     searchResultsSection.style.display = 'none';
   }
 
-  // Close modal
+  // Close modal with smooth animation
   function closeModal() {
-    modal.classList.remove('active');
-    document.body.classList.remove('modal-open');
-    input.value = '';
-    searchResultsSection.style.display = 'none';
-    pagesSection.style.display = 'block';
-    selectedIndex = 0;
+    modal.classList.add('closing');
+    
+    // Wait for animation to complete before removing active class
+    setTimeout(() => {
+      modal.classList.remove('active');
+      modal.classList.remove('closing');
+      document.body.classList.remove('modal-open');
+      input.value = '';
+      searchResultsSection.style.display = 'none';
+      pagesSection.style.display = 'block';
+      selectedIndex = 0;
+    }, 300); // Match the animation duration (0.3s)
   }
 
   // Fuzzy search function - OPTIMIZED
