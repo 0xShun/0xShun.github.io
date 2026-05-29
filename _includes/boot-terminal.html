@@ -93,10 +93,8 @@ function simulateBootSequence() {
   }
 }
 
-// Start boot sequence on page load
-window.addEventListener('load', () => {
-  simulateBootSequence();
-});
+// Start boot sequence immediately when page loads
+simulateBootSequence();
 
 // Handle user input
 bootInput.addEventListener('keypress', (e) => {

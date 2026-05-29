@@ -2733,15 +2733,13 @@ a:hover {
   width: 100%;
   height: 100%;
   background: #000000;
-  border: 2px solid #4553ef;
+  border: none;
   border-radius: 0;
   padding: 20px;
   font-family: 'Fira Code', monospace;
   color: #00ff00;
   overflow-y: auto;
-  box-shadow: 
-    inset 0 0 40px rgba(69, 83, 239, 0.2),
-    inset 0 0 20px rgba(69, 83, 239, 0.1);
+  box-shadow: none;
   display: flex;
   flex-direction: column;
 }
@@ -2767,7 +2765,7 @@ a:hover {
   align-items: center;
   gap: 8px;
   padding: 8px 0;
-  border-top: 1px solid rgba(69, 83, 239, 0.3);
+  border-top: none;
 }
 
 .boot-prompt {
