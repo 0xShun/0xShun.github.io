@@ -1,0 +1,148 @@
+<!-- Boot Terminal Screen Component -->
+<div id="boot-terminal-container" class="boot-terminal-container">
+  <div class="boot-terminal">
+    <div class="boot-output" id="boot-output"></div>
+    <div class="boot-input-line">
+      <span class="boot-prompt">➜</span>
+      <input 
+        type="text" 
+        class="boot-input" 
+        id="boot-input" 
+        placeholder="Type 'start' to begin..."
+        autofocus
+      >
+      <span class="boot-cursor"></span>
+    </div>
+  </div>
+</div>
+
+<script>
+// Boot sequence messages
+const bootMessages = [
+  "[    0.000000] Linux version 5.15.0-cyberpunk-x86_64 (kernel-builder@workstation) (gcc (GCC) 11.2.0, GNU ld version 2.37) #1 SMP PREEMPT",
+  "[    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-5.15.0 root=UUID=x0shun-cyberpunk ro quiet splash",
+  "[    0.000000] x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'",
+  "[    0.000000] x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'",
+  "[    0.000000] x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'",
+  "[    0.000000] x86/fpu: xstate_offset[2]:  576, xstate_sizes[2]:  256",
+  "[    0.000000] x86/fpu: Enabled xstate features 0x7: 'x87 SSE AVX' (0x2ff bytes)",
+  "[    0.002814] BIOS-provided physical RAM map:",
+  "[    0.002817] BIOS-e820: [mem 0x0000000000000000-0x000000000009efff] usable",
+  "[    0.002819] BIOS-e820: [mem 0x000000000009f000-0x000000000009ffff] reserved",
+  "[    0.008453] clocksource: refined-jiffies: mask: 0x1fff max_cycles: 0x1fff, 0 ns)",
+  "[    0.008457] setup: Allowing 2048 CPUs, 0 hotplug CPUs",
+  "[    0.008458] clocksource: hpet: mask: 0xffffffff max_cycles: 0xffffffff, 0 ns)",
+  "[    0.012814] APIC: NR_CPUS/possible_cpus limit of 2048 reached. Allowing 4 CPUs, 0 hotplug CPUs.",
+  "[    0.015625] clocksource: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x5b9dd7cf0dd, 0 ns)",
+  "[    0.023456] Calibrating delay loop (skipped), value calculated using timer frequency.. 4399.98 BogoMIPS",
+  "[    0.031234] pid_max: default: 32768 minimum: 301",
+  "[    0.042875] Mount-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)",
+  "[    0.051234] Mountpoint-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)",
+  "[    0.075432] *** VALIDATE proc ***",
+  "[    0.080123] *** VALIDATE cgroup ***",
+  "[    0.085643] *** VALIDATE cgroup ***",
+  "[    0.091234] mce: CPU0: Package temperature/speed normal",
+  "[    0.098765] process: Using ACPI for processor (CPUID 0x506)",
+  "[    0.105432] ACPI: Evaluating _OSC for PCIe, support is now disabled",
+  "[    0.112845] PCI: Using ACPI for host bridge access control",
+  "[    0.119876] pci 0000:00:00.0: [8086:0d04] type 00 class 0x060000",
+  "[    0.126543] pci 0000:00:02.0: [8086:0416] type 00 class 0x030000",
+  "[    0.142876] usb 1-1: new high-speed USB device number 2 using xhci_hcd",
+  "[    0.156234] audit: type=1130 audit(1685378012.234:1): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=systemd-tmpfiles-setup-dev comm=\"systemd\" exe=\"/usr/lib/systemd/systemd\" hostname=? addr=? terminal=? res=success'",
+  "[    0.167432] random: systemd-sysctl: uninitialized urandom read (16 bytes read)",
+  "[    0.178965] random: systemd-sysctl: uninitialized urandom read (16 bytes read)",
+  "[    0.189234] systemd[1]: Listening on udev Control Socket.",
+  "[    0.198765] audit: type=1130 audit(1685378012.456:2): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=systemd-update-utmp-runlevel comm=\"systemd\" exe=\"/usr/lib/systemd/systemd\" hostname=? addr=? terminal=? res=success'",
+  "[    0.234567] audit: type=1131 audit(1685378013.123:3): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=getty@tty1 comm=\"systemd\" exe=\"/usr/lib/systemd/systemd\" hostname=? addr=? terminal=? res=success'",
+  "[    0.245678] systemd[1]: Started User Manager for UID 1000.",
+  "[    0.256789] systemd[1]: Reached target Multi-User System.",
+  "[    0.267890] audit: type=1131 audit(1685378013.890:4): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=systemd-logind comm=\"systemd\" exe=\"/usr/lib/systemd/systemd\" hostname=? addr=? terminal=? res=success'",
+  "",
+  "Cyberpunk OS 5.15.0 (0xShun-Workstation) (pts/0)",
+  "",
+  "Welcome to the Cyberpunk Operating System",
+  "Type 'start' to initialize the desktop environment",
+  ""
+];
+
+const bootInput = document.getElementById('boot-input');
+const bootOutput = document.getElementById('boot-output');
+const bootTerminal = document.getElementById('boot-terminal');
+
+let currentMessageIndex = 0;
+let isBooting = true;
+
+// Function to add message to output
+function addBootMessage(message) {
+  const line = document.createElement('div');
+  line.className = 'boot-line';
+  line.textContent = message;
+  bootOutput.appendChild(line);
+  bootTerminal.scrollTop = bootTerminal.scrollHeight;
+}
+
+// Simulate boot sequence
+function simulateBootSequence() {
+  if (currentMessageIndex < bootMessages.length) {
+    addBootMessage(bootMessages[currentMessageIndex]);
+    currentMessageIndex++;
+    setTimeout(simulateBootSequence, 30 + Math.random() * 70); // Random delay between messages
+  } else {
+    isBooting = false;
+    bootInput.focus();
+  }
+}
+
+// Start boot sequence on page load
+window.addEventListener('load', () => {
+  simulateBootSequence();
+});
+
+// Handle user input
+bootInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter' && !isBooting) {
+    const command = bootInput.value.trim().toLowerCase();
+    
+    // Show user input
+    addBootMessage(`➜ ${bootInput.value}`);
+    bootInput.value = '';
+    
+    if (command === 'start') {
+      // Transition to desktop
+      addBootMessage('');
+      addBootMessage('Initializing desktop environment...');
+      addBootMessage('Loading window manager...');
+      addBootMessage('Starting file system...');
+      
+      setTimeout(() => {
+        // Fade out boot terminal and show desktop
+        bootTerminal.style.opacity = '0';
+        bootTerminal.style.pointerEvents = 'none';
+        
+        // Show desktop and taskbar
+        const desktop = document.getElementById('os-desktop');
+        const taskbar = document.getElementById('os-taskbar');
+        if (desktop) desktop.style.display = 'grid';
+        if (taskbar) taskbar.style.display = 'flex';
+        
+        // Trigger any animations
+        document.body.classList.add('os-desktop-active');
+      }, 1500);
+    } else if (command === 'help') {
+      addBootMessage('Available commands:');
+      addBootMessage('  start     - Initialize the desktop environment');
+      addBootMessage('  help      - Show this help message');
+      addBootMessage('');
+    } else if (command.length > 0) {
+      addBootMessage(`Command not found: ${command}`);
+      addBootMessage('Type "start" to begin or "help" for available commands');
+      addBootMessage('');
+    }
+  }
+});
+
+// Prevent default form submission
+bootInput.addEventListener('submit', (e) => {
+  e.preventDefault();
+});
+</script>
