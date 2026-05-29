@@ -2751,6 +2751,17 @@ a:hover {
   font-size: 0.85rem;
   line-height: 1.4;
   text-align: left;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but keep scrolling functional */
+.boot-output::-webkit-scrollbar {
+  display: none;
+}
+
+.boot-output {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .boot-line {

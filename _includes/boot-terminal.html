@@ -57,6 +57,61 @@ const bootMessages = [
   "[    0.245678] systemd[1]: Started User Manager for UID 1000.",
   "[    0.256789] systemd[1]: Reached target Multi-User System.",
   "[    0.267890] audit: type=1131 audit(1685378013.890:4): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=systemd-logind comm=\"systemd\" exe=\"/usr/lib/systemd/systemd\" hostname=? addr=? terminal=? res=success'",
+  "[    0.312456] EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: (null)",
+  "[    0.345678] VFS: Mounted root (ext4 filesystem) readonly on device 8:1.",
+  "[    0.356789] devtmpfs: mounted",
+  "[    0.367890] Freeing initrd memory: 65432K",
+  "[    0.378901] random: crng init done",
+  "[    0.389012] random: 7 urandom warning(s) missed due to ratelimit",
+  "[    0.400123] Freeing unused kernel memory: 1234K",
+  "[    0.411234] Write protecting the kernel read-only data: 18432k",
+  "[    0.422345] Freeing unused kernel memory: 2048K",
+  "[    0.433456] Freeing unused kernel memory: 1024K",
+  "[    0.444567] x86/mm: Checked W+X mappings: passed, no W+X pages found.",
+  "[    0.455678] rodata: 'write protecting modules' enabled",
+  "[    0.466789] Run /sbin/init as init process",
+  "[    0.477890] random: get_random_bytes called from start_kernel+0x3e8/0x468 with crng_init=1",
+  "[    0.488901] EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: (null)",
+  "[    0.499012] audit: type=1130 audit(1685378013.567:5): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=systemd-journal-flush.service comm=\"systemd\" exe=\"/usr/lib/systemd/systemd\" hostname=? addr=? terminal=? res=success'",
+  "[    0.510123] systemd[1]: systemd 247.3-3+deb11u4 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +ZSTD +SECCOMP +BLKID +ELFUTILS +KMOD +IDN2 -IDN +PCRE2 default-hierarchy=hybrid)",
+  "[    0.521234] systemd[1]: Detected architecture x86-64.",
+  "[    0.532345] systemd[1]: Set hostname to <cyberpunk-station>.",
+  "[    0.543456] systemd[1]: File /etc/machine-id is not a valid uuid, generating a new uuid.",
+  "[    0.554567] systemd[1]: Using system UUID: a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "[    0.565678] systemd[1]: Listening on Journal Socket (/dev/log).",
+  "[    0.576789] systemd[1]: Listening on udev Control Socket.",
+  "[    0.587890] systemd[1]: Started File System Check on Root Device.",
+  "[    0.598901] systemd[1]: Started Create List of Required Static Device Nodes.",
+  "[    0.609012] systemd[1]: Started udev Kernel Device Manager.",
+  "[    0.620123] systemd[1]: Mounted Temporary Directory (/tmp).",
+  "[    0.631234] audit: type=1130 audit(1685378014.123:6): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=systemd-tmpfiles-setup comm=\"systemd\" exe=\"/usr/lib/systemd/systemd\" hostname=? addr=? terminal=? res=success'",
+  "[    0.642345] systemd[1]: Started Setup Virtual Console.",
+  "[    0.653456] systemd[1]: Reached target Local File Systems.",
+  "[    0.664567] systemd[1]: Listening on multipathd control socket.",
+  "[    0.675678] audit: type=1130 audit(1685378014.234:7): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=rc-local.service comm=\"systemd\" exe=\"/usr/lib/systemd/systemd\" hostname=? addr=? terminal=? res=success'",
+  "[    0.686789] systemd[1]: Started SSH Per-Connection Server.",
+  "[    0.697890] systemd[1]: Listening on Load Kernel Modules.",
+  "[    0.708901] systemd[1]: Reached target System Initialization.",
+  "[    0.719012] systemd[1]: Started Daily apt download activities.",
+  "[    0.730123] systemd[1]: Started Daily apt upgrade and clean activities.",
+  "[    0.741234] audit: type=1130 audit(1685378014.567:8): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=systemd-journal-flush.service comm=\"systemd\" exe=\"/usr/lib/systemd/systemd\" hostname=? addr=? terminal=? res=success'",
+  "[    0.752345] systemd[1]: Reached target Timers.",
+  "[    0.763456] systemd[1]: Listening on Deferred execution scheduler.",
+  "[    0.774567] systemd[1]: Listening on User Manager Socket.",
+  "[    0.785678] systemd[1]: Reached target Sockets.",
+  "[    0.796789] systemd[1]: Started Cleanup of Temporary Directories.",
+  "[    0.807890] systemd[1]: Listening on /dev/initctl Compatibility Named Pipe.",
+  "[    0.818901] systemd[1]: Reached target Basic System.",
+  "[    0.829012] audit: type=1130 audit(1685378014.890:9): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=getty@tty1 comm=\"systemd\" exe=\"/usr/lib/systemd/systemd\" hostname=? addr=? terminal=? res=success'",
+  "[    0.840123] systemd[1]: Started Login Service.",
+  "[    0.851234] systemd[1]: Reached target User Slice.",
+  "[    0.862345] systemd[1]: Started User Manager for UID 0.",
+  "[    0.873456] systemd[1]: Reached target Multi-User System.",
+  "[    0.884567] audit: type=1131 audit(1685378015.123:10): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=getty@tty6 comm=\"systemd\" exe=\"/usr/lib/systemd/systemd\" hostname=? addr=? terminal=? res=success'",
+  "[    0.895678] systemd[1]: Started Getty on tty1.",
+  "[    0.906789] systemd[1]: Reached target Graphical Interface.",
+  "[    0.917890] audit: type=1130 audit(1685378015.234:11): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=networking.service comm=\"systemd\" exe=\"/usr/lib/systemd/systemd\" hostname=? addr=? terminal=? res=success'",
+  "[    0.928901] systemd[1]: Started Networking.",
   "",
   "Cyberpunk OS 5.15.0 (0xShun-Workstation) (pts/0)",
   "",
@@ -83,15 +138,19 @@ function initBootTerminal() {
     line.className = 'boot-line';
     line.textContent = message;
     bootOutput.appendChild(line);
+    
+    // Auto-scroll to bottom smoothly
     bootTerminal.scrollTop = bootTerminal.scrollHeight;
   }
 
-  // Simulate boot sequence
+  // Simulate boot sequence with ~5 second duration
   function simulateBootSequence() {
     if (currentMessageIndex < bootMessages.length) {
       addBootMessage(bootMessages[currentMessageIndex]);
       currentMessageIndex++;
-      setTimeout(simulateBootSequence, 30 + Math.random() * 70);
+      // Distribute boot messages evenly over ~5000ms
+      const delayBetweenMessages = 5000 / bootMessages.length;
+      setTimeout(simulateBootSequence, delayBetweenMessages);
     } else {
       isBooting = false;
       bootInput.focus();
