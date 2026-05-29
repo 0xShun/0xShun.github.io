@@ -65,88 +65,91 @@ const bootMessages = [
   ""
 ];
 
-const bootInput = document.getElementById('boot-input');
-const bootOutput = document.getElementById('boot-output');
-const bootTerminal = document.getElementById('boot-terminal');
-
 let currentMessageIndex = 0;
 let isBooting = true;
 
-// Function to add message to output
-function addBootMessage(message) {
-  const line = document.createElement('div');
-  line.className = 'boot-line';
-  line.textContent = message;
-  bootOutput.appendChild(line);
-  bootTerminal.scrollTop = bootTerminal.scrollHeight;
-}
-
-// Simulate boot sequence
-function simulateBootSequence() {
-  if (currentMessageIndex < bootMessages.length) {
-    addBootMessage(bootMessages[currentMessageIndex]);
-    currentMessageIndex++;
-    setTimeout(simulateBootSequence, 30 + Math.random() * 70); // Random delay between messages
-  } else {
-    isBooting = false;
-    bootInput.focus();
+function initBootTerminal() {
+  const bootInput = document.getElementById('boot-input');
+  const bootOutput = document.getElementById('boot-output');
+  const bootTerminal = document.querySelector('.boot-terminal');
+  
+  if (!bootInput || !bootOutput || !bootTerminal) {
+    return;
   }
-}
 
-// Start boot sequence immediately when page loads
-simulateBootSequence();
+  // Function to add message to output
+  function addBootMessage(message) {
+    const line = document.createElement('div');
+    line.className = 'boot-line';
+    line.textContent = message;
+    bootOutput.appendChild(line);
+    bootTerminal.scrollTop = bootTerminal.scrollHeight;
+  }
 
-// Handle user input
-bootInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    const command = bootInput.value.trim().toLowerCase();
-    
-    // Show user input
-    addBootMessage(`➜ ${bootInput.value}`);
-    bootInput.value = '';
-    
-    if (command === 'start') {
-      // Transition to desktop
-      addBootMessage('');
-      addBootMessage('Initializing desktop environment...');
-      addBootMessage('Loading window manager...');
-      addBootMessage('Starting file system...');
-      addBootMessage('');
-      addBootMessage('Desktop ready.');
-      addBootMessage('');
-      
-      setTimeout(() => {
-        // Fade out boot terminal and show desktop
-        const bootContainer = document.getElementById('boot-terminal-container');
-        if (bootContainer) {
-          bootContainer.style.opacity = '0';
-          bootContainer.style.pointerEvents = 'none';
-        }
-        
-        // Show desktop and taskbar
-        const desktop = document.getElementById('os-desktop');
-        const taskbar = document.getElementById('os-taskbar');
-        if (desktop) desktop.style.display = 'grid';
-        if (taskbar) taskbar.style.display = 'flex';
-        
-        // Trigger any animations
-        document.body.classList.add('os-desktop-active');
-      }, 1500);
-    } else if (command === 'help') {
-      addBootMessage('Available commands:');
-      addBootMessage('  start     - Initialize the desktop environment');
-      addBootMessage('  help      - Show this help message');
-      addBootMessage('');
-    } else if (command.length > 0) {
-      addBootMessage(`Command not found: ${command}`);
-      addBootMessage('Type "start" to begin or "help" for available commands');
-      addBootMessage('');
+  // Simulate boot sequence
+  function simulateBootSequence() {
+    if (currentMessageIndex < bootMessages.length) {
+      addBootMessage(bootMessages[currentMessageIndex]);
+      currentMessageIndex++;
+      setTimeout(simulateBootSequence, 30 + Math.random() * 70);
+    } else {
+      isBooting = false;
+      bootInput.focus();
     }
   }
-});
 
-// Prevent default form submission
-bootInput.addEventListener('submit', (e) => {
-  e.preventDefault();
-});
+  // Start boot sequence
+  simulateBootSequence();
+
+  // Handle user input
+  bootInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      const command = bootInput.value.trim().toLowerCase();
+      
+      addBootMessage(`➜ ${bootInput.value}`);
+      bootInput.value = '';
+      
+      if (command === 'start') {
+        addBootMessage('');
+        addBootMessage('Initializing desktop environment...');
+        addBootMessage('Loading window manager...');
+        addBootMessage('Starting file system...');
+        addBootMessage('');
+        addBootMessage('Desktop ready.');
+        addBootMessage('');
+        
+        setTimeout(() => {
+          const bootContainer = document.getElementById('boot-terminal-container');
+          if (bootContainer) {
+            bootContainer.style.opacity = '0';
+            bootContainer.style.pointerEvents = 'none';
+          }
+          
+          const desktop = document.getElementById('os-desktop');
+          const taskbar = document.getElementById('os-taskbar');
+          if (desktop) desktop.style.display = 'grid';
+          if (taskbar) taskbar.style.display = 'flex';
+          
+          document.body.classList.add('os-desktop-active');
+        }, 1500);
+      } else if (command === 'help') {
+        addBootMessage('Available commands:');
+        addBootMessage('  start     - Initialize the desktop environment');
+        addBootMessage('  help      - Show this help message');
+        addBootMessage('');
+      } else if (command.length > 0) {
+        addBootMessage(`Command not found: ${command}`);
+        addBootMessage('Type "start" to begin or "help" for available commands');
+        addBootMessage('');
+      }
+    }
+  });
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initBootTerminal);
+} else {
+  initBootTerminal();
+}
 </script>
