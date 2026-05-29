@@ -100,7 +100,7 @@ window.addEventListener('load', () => {
 
 // Handle user input
 bootInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter' && !isBooting) {
+  if (e.key === 'Enter') {
     const command = bootInput.value.trim().toLowerCase();
     
     // Show user input
@@ -113,11 +113,17 @@ bootInput.addEventListener('keypress', (e) => {
       addBootMessage('Initializing desktop environment...');
       addBootMessage('Loading window manager...');
       addBootMessage('Starting file system...');
+      addBootMessage('');
+      addBootMessage('Desktop ready.');
+      addBootMessage('');
       
       setTimeout(() => {
         // Fade out boot terminal and show desktop
-        bootTerminal.style.opacity = '0';
-        bootTerminal.style.pointerEvents = 'none';
+        const bootContainer = document.getElementById('boot-terminal-container');
+        if (bootContainer) {
+          bootContainer.style.opacity = '0';
+          bootContainer.style.pointerEvents = 'none';
+        }
         
         // Show desktop and taskbar
         const desktop = document.getElementById('os-desktop');
