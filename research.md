@@ -68,16 +68,3 @@ permalink: /research/
     
   </div>
 </section>
-
-<div style="margin-top: 3rem; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; border-left: 3px solid var(--accent-primary);">
-  <h3 style="color: var(--accent-primary); margin-bottom: 1rem;">Research Interests</h3>
-  <ul style="color: var(--text-secondary); line-height: 2;">
-    <li>Digital Forensics & Incident Response (DFIR)</li>
-    <li>Threat Intelligence & Cyber Threat Analysis</li>
-    <li>Machine Learning for Security Applications</li>
-    <li>IoT Security & Embedded Systems</li>
-    <li>Network Security & Intrusion Detection</li>
-    <li>Malware Analysis & Reverse Engineering</li>
-    <li>Data Analytics for Security Operations</li>
-  </ul>
-</div>

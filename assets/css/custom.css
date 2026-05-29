@@ -93,11 +93,21 @@ body.modal-open {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Fira Code', 'Courier New', monospace;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
 }
 
 p, span, a, li, div {
   font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+/* Image Styles */
+img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  object-fit: contain;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 a {
@@ -159,7 +169,7 @@ a:hover {
   height: 60px;
   background-color: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid #000000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -182,12 +192,136 @@ a:hover {
   margin: 0;
 }
 
+/* ============================================
+   Animated Navigation Items
+   ============================================ */
+.navbar-nav.animated-nav {
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.navbar-nav.animated-nav .nav-item {
+  position: relative;
+  list-style: none;
+  width: 50px;
+  height: 50px;
+  background: var(--bg-secondary);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border: 2px solid transparent;
+}
+
+.navbar-nav.animated-nav .nav-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--i), var(--j));
+  opacity: 0;
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.navbar-nav.animated-nav .nav-item::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--i), var(--j));
+  transition: 0.5s;
+  filter: blur(15px);
+  z-index: -2;
+  opacity: 0;
+}
+
+.navbar-nav.animated-nav .nav-item:hover {
+  width: 150px;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  background: var(--accent-primary);
+}
+
+.navbar-nav.animated-nav .nav-item:hover::before {
+  opacity: 0;
+  border-radius: 50px;
+}
+
+.navbar-nav.animated-nav .nav-item:hover::after {
+  opacity: 0;
+  border-radius: 50px;
+}
+
+.navbar-nav.animated-nav .nav-link {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--text-primary);
+  z-index: 1;
+  gap: 0.5rem;
+}
+
+.navbar-nav.animated-nav .icon {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 1.5em;
+  transition: 0.5s;
+  transition-delay: 0.25s;
+}
+
+.navbar-nav.animated-nav .nav-item:hover .icon {
+  transform: scale(0);
+  color: #fff;
+  transition-delay: 0s;
+}
+
+.navbar-nav.animated-nav .title {
+  position: absolute;
+  color: #fff;
+  font-size: 0.9em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: bold;
+  transform: scale(0);
+  transition: 0.5s;
+  transition-delay: 0s;
+  white-space: nowrap;
+}
+
+.navbar-nav.animated-nav .nav-item:hover .title {
+  transform: scale(1);
+  transition-delay: 0.25s;
+}
+
 .navbar-actions {
   position: absolute;
   right: 2rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.navbar-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 1rem;
+  padding-right: 1rem;
+  border-right: 1px solid var(--border-color);
 }
 
 /* ============================================
@@ -389,7 +523,7 @@ a:hover {
   font-size: 1rem;
   font-family: 'Fira Code', monospace;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   transition: color 0.3s ease, text-shadow 0.3s ease;
   position: relative;
 }
@@ -492,17 +626,33 @@ a:hover {
   position: relative;
   width: 90%;
   max-width: 600px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 2px solid rgba(69, 83, 239, 0.3);
-  border-radius: 12px;
-  box-shadow: 
-    0 8px 32px rgba(31, 38, 135, 0.2),
-    inset 1px 1px 0 rgba(255, 255, 255, 0.1),
-    inset -1px -1px 0 rgba(0, 0, 0, 0.3);
-  overflow: hidden;
+  background: #020202;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  overflow: visible;
   animation: slideDown 0.3s ease;
+}
+
+.command-palette-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: conic-gradient(var(--accent-primary), var(--accent-primary), transparent);
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0;
+}
+
+.command-palette-container:hover::before {
+  opacity: 0;
+}
+
+.command-palette-container:hover {
+  background: #020202;
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.1);
 }
 
 .command-palette-modal.closing .command-palette-container {
@@ -576,6 +726,29 @@ a:hover {
   }
 }
 
+@keyframes borderStroke {
+  0% {
+    background-position: 0% 0%;
+    background-size: 0% 100%;
+  }
+  25% {
+    background-position: 0% 0%;
+    background-size: 100% 100%;
+  }
+  50% {
+    background-position: 100% 0%;
+    background-size: 100% 100%;
+  }
+  75% {
+    background-position: 100% 100%;
+    background-size: 100% 100%;
+  }
+  100% {
+    background-position: 0% 100%;
+    background-size: 100% 100%;
+  }
+}
+
 .command-palette-header {
   display: flex;
   align-items: center;
@@ -593,7 +766,7 @@ a:hover {
   font-size: 1.1rem;
   font-family: 'Fira Code', monospace;
   font-weight: 500;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   outline: none;
 }
 
@@ -660,7 +833,7 @@ a:hover {
   text-transform: uppercase;
   color: var(--text-secondary);
   font-weight: bold;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
 }
 
 .command-palette-item {
@@ -940,6 +1113,7 @@ a:hover {
 .page-content p {
   margin-bottom: 1.5rem;
   font-size: var(--font-size-base);
+  text-align: justify;
 }
 
 .page-content a {
@@ -954,6 +1128,56 @@ a:hover {
 
 .page-content a:hover {
   border-bottom-color: var(--accent-primary);
+}
+
+/* ============================================
+   Credentials Table
+   ============================================ */
+.credentials-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.credentials-table tr {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.credentials-table td {
+  border: none;
+  background-color: transparent;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  vertical-align: middle;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--accent-primary);
+  letter-spacing: 0.05em;
+  cursor: help;
+  transition: all 0.2s ease;
+}
+
+.credentials-table td:hover {
+  color: var(--text-primary);
+  text-shadow: 0 0 10px rgba(69, 83, 239, 0.5);
+}
+
+/* Responsive: 2 columns on tablets */
+@media (max-width: 768px) {
+  .credentials-table tr {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive: 1 column on mobile */
+@media (max-width: 480px) {
+  .credentials-table tr {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ============================================
@@ -972,6 +1196,8 @@ a:hover {
   margin-bottom: var(--spacing-md);
   border-radius: var(--radius-full);
   border: 3px solid var(--accent-primary);
+  background: #ffffff;
+  padding: 1.5rem;
   box-shadow: var(--shadow-sm);
 }
 
@@ -1117,108 +1343,82 @@ a:hover {
 
 /* ============================================
    Cards & Containers
-   Glassmorphism Design with Cyberpunk Accents
+/* ============================================
+   Card Designs - Dark Base with Gradient Border Hover
    ============================================ */
 .card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  /* Asymmetrical metal plate-like border */
-  border-top: 3px solid rgba(69, 83, 239, 0.3);
-  border-left: 2px solid rgba(69, 83, 239, 0.25);
-  border-right: 1px solid rgba(69, 83, 239, 0.15);
-  border-bottom: 2px solid rgba(69, 83, 239, 0.2);
-  border-radius: 12px;
+  background: #020202;
+  border-radius: 20px;
   padding: var(--spacing-md);
   margin-bottom: var(--spacing-md);
   transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
-  box-shadow: 
-    0 8px 32px rgba(31, 38, 135, 0.15),
-    inset 1px 1px 0 rgba(255, 255, 255, 0.1),
-    inset -1px -1px 0 rgba(0, 0, 0, 0.2);
-  /* Optimize for touch */
-  -webkit-tap-highlight-color: rgba(69, 83, 239, 0.2);
+  overflow: visible;
+  border: 2px solid transparent;
+  cursor: pointer;
 }
 
 .card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-  background: var(--accent-primary);
-  transform: translateX(-3px);
-  transition: transform 0.3s ease;
-  will-change: transform;
-  display: none;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: conic-gradient(var(--accent-primary), var(--accent-primary), transparent);
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0;
 }
 
 .card:hover,
 .card:active {
-  background: rgba(255, 255, 255, 0.08);
-  border-top: 3px solid rgba(69, 83, 239, 0.5);
-  border-left: 2px solid rgba(69, 83, 239, 0.45);
-  border-right: 1px solid rgba(69, 83, 239, 0.35);
-  border-bottom: 2px solid rgba(69, 83, 239, 0.4);
-  box-shadow: 
-    0 12px 45px rgba(69, 83, 239, 0.25),
-    0 0 35px rgba(69, 83, 239, 0.3),
-    inset 1px 1px 0 rgba(255, 255, 255, 0.15),
-    inset -1px -1px 0 rgba(0, 0, 0, 0.3);
-  transform: translateY(-5px);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  background: #020202;
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.1);
 }
 
 .card:hover::before,
 .card:active::before {
-  transform: translateX(-3px);
+  opacity: 0;
 }
 
 /* ============================================
-   Project Cards
-   Glassmorphism Design with Cyberpunk Accents
+   Project Cards - Dark Base with Gradient Border Hover
    ============================================ */
 .project-card {
   transition: all 0.3s ease;
   position: relative;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  /* Asymmetrical metal plate-like border */
-  border-top: 3px solid rgba(69, 83, 239, 0.3);
-  border-left: 2px solid rgba(69, 83, 239, 0.25);
-  border-right: 1px solid rgba(69, 83, 239, 0.15);
-  border-bottom: 2px solid rgba(69, 83, 239, 0.2);
-  border-radius: 12px;
-  box-shadow: 
-    0 8px 32px rgba(31, 38, 135, 0.15),
-    inset 1px 1px 0 rgba(255, 255, 255, 0.1),
-    inset -1px -1px 0 rgba(0, 0, 0, 0.2);
+  background: #020202;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  overflow: visible;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: conic-gradient(var(--accent-primary), var(--accent-primary), transparent);
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.08);
-  border-top: 3px solid rgba(69, 83, 239, 0.5);
-  border-left: 2px solid rgba(69, 83, 239, 0.45);
-  border-right: 1px solid rgba(69, 83, 239, 0.35);
-  border-bottom: 2px solid rgba(69, 83, 239, 0.4);
-  box-shadow: 
-    0 12px 45px rgba(69, 83, 239, 0.25),
-    0 0 35px rgba(69, 83, 239, 0.3),
-    inset 1px 1px 0 rgba(255, 255, 255, 0.15),
-    inset -1px -1px 0 rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  background: #020202;
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.1);
+}
+
+.project-card:hover::before {
+  opacity: 0;
 }
 
 .project-card:active {
-  transform: translateY(-2px);
+  background: #020202;
 }
 
 .project-card:hover .card-title svg {
@@ -1237,9 +1437,9 @@ a:hover {
 }
 
 .project-card:hover .tech-tag {
-  background: var(--accent-primary);
-  color: var(--bg-primary);
-  border-color: var(--accent-primary);
+  background: var(--bg-secondary);
+  color: var(--accent-primary);
+  border-color: var(--border-color);
 }
 
 .project-image {
@@ -1272,9 +1472,9 @@ a:hover {
 }
 
 .project-card:hover .category-tag {
-  background: var(--accent-primary);
-  color: var(--bg-primary);
-  border-color: var(--accent-primary);
+  background: rgba(69, 83, 239, 0.1);
+  color: var(--accent-primary);
+  border-color: rgba(69, 83, 239, 0.3);
 }
 
 .card-title {
@@ -1283,7 +1483,7 @@ a:hover {
   color: var(--text-primary);
   font-family: 'Fira Code', monospace;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
@@ -1524,7 +1724,7 @@ a:hover {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 0.9rem;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
 .post-content td {
@@ -2701,516 +2901,9 @@ a:hover {
     height: 35px;
     font-size: 1.75rem;
   }
-}
 
-/* ============================================
-   CYBERPUNK OS INTERFACE
-   Desktop Environment with Windows, Taskbar, Icons
-   ============================================ */
-
-/* Boot Terminal Screen */
-.boot-terminal-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000000;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 20px;
-  z-index: 10000;
-  transition: opacity 0.8s ease;
-}
-
-.boot-terminal-container.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.boot-terminal {
-  width: 100%;
-  height: 100%;
-  background: #000000;
-  border: none;
-  border-radius: 0;
-  padding: 20px;
-  font-family: 'Fira Code', monospace;
-  color: #00ff00;
-  overflow-y: auto;
-  box-shadow: none;
-  display: flex;
-  flex-direction: column;
-}
-
-.boot-output {
-  flex: 1;
-  overflow-y: auto;
-  margin-bottom: 10px;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  text-align: left;
-  scroll-behavior: smooth;
-}
-
-/* Hide scrollbar but keep scrolling functional */
-.boot-output::-webkit-scrollbar {
-  display: none;
-}
-
-.boot-output {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-.boot-line {
-  margin: 1px 0;
-  font-family: 'Fira Code', monospace;
-  text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
-  word-break: break-all;
-}
-
-.boot-input-line {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 0;
-  border-top: none;
-}
-
-.boot-prompt {
-  color: #4553ef;
-  font-weight: bold;
-  text-shadow: 0 0 8px rgba(69, 83, 239, 0.6);
-}
-
-.boot-input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  color: #00ff00;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.95rem;
-  outline: none;
-  text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
-}
-
-.boot-input::placeholder {
-  color: rgba(0, 255, 0, 0.4);
-}
-
-.boot-cursor {
-  width: 2px;
-  height: 1.2em;
-  background: #4553ef;
-  animation: bootBlink 1s infinite;
-  box-shadow: 0 0 10px rgba(69, 83, 239, 0.8);
-}
-
-@keyframes bootBlink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-
-/* OS Desktop Environment */
-#os-desktop {
-  display: none;
-  position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #000000;
-  background-image: 
-    repeating-linear-gradient(
-      0deg,
-      rgba(69, 83, 239, 0.03) 0px,
-      rgba(69, 83, 239, 0.03) 1px,
-      transparent 1px,
-      transparent 2px
-    );
-  z-index: 1;
-  overflow: hidden;
-}
-
-body.os-desktop-active #boot-terminal-container {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Taskbar */
-#os-taskbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: linear-gradient(180deg, rgba(10, 10, 10, 0.98), rgba(5, 5, 5, 0.95));
-  border-bottom: 2px solid #4553ef;
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  z-index: 9000;
-  box-shadow: 0 4px 20px rgba(69, 83, 239, 0.2);
-}
-
-.taskbar-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  min-width: 100px;
-}
-
-.taskbar-center {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.taskbar-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  min-width: 100px;
-  justify-content: flex-end;
-}
-
-.taskbar-clock {
-  font-family: 'Fira Code', monospace;
-  color: #4553ef;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-shadow: 0 0 8px rgba(69, 83, 239, 0.5);
-  letter-spacing: 1px;
-}
-
-.taskbar-windows {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.taskbar-window-btn {
-  background: rgba(69, 83, 239, 0.1);
-  border: 1px solid rgba(69, 83, 239, 0.3);
-  color: #ffffff;
-  padding: 6px 12px;
-  border-radius: 2px;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.taskbar-window-btn:hover {
-  background: rgba(69, 83, 239, 0.2);
-  border-color: #4553ef;
-  box-shadow: 0 0 15px rgba(69, 83, 239, 0.4);
-}
-
-.taskbar-status {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.8rem;
-  color: #ffffff;
-}
-
-.status-indicator {
-  width: 8px;
-  height: 8px;
-  background: #00ff00;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #00ff00;
-  animation: statusPulse 2s infinite;
-}
-
-@keyframes statusPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.status-text {
-  color: #00ff00;
-  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
-}
-
-/* Desktop Icons Container */
-.desktop-icons {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.desktop-icon {
-  position: absolute;
-  width: 80px;
-  text-align: center;
-  cursor: pointer;
-  pointer-events: all;
-  user-select: none;
-  transition: all 0.2s ease;
-}
-
-.desktop-icon-visual {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #4553ef;
-  border: 2px solid #4553ef;
-  border-radius: 4px;
-  background: rgba(69, 83, 239, 0.05);
-  transition: all 0.2s ease;
-}
-
-.desktop-icon:hover .desktop-icon-visual {
-  background: rgba(69, 83, 239, 0.15);
-  box-shadow: 0 0 20px rgba(69, 83, 239, 0.4), inset 0 0 10px rgba(69, 83, 239, 0.1);
-  transform: scale(1.05);
-}
-
-.desktop-icon-label {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.8rem;
-  color: #ffffff;
-  word-break: break-word;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-  transition: all 0.2s ease;
-}
-
-.desktop-icon:hover .desktop-icon-label {
-  color: #4553ef;
-  text-shadow: 0 0 10px rgba(69, 83, 239, 0.6);
-}
-
-/* Windows Container */
-.windows-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-/* OS Window */
-.os-window {
-  position: absolute;
-  min-width: 400px;
-  min-height: 300px;
-  background: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(5, 5, 5, 0.95));
-  border: 2px solid #4553ef;
-  border-radius: 4px;
-  box-shadow: 
-    0 0 40px rgba(69, 83, 239, 0.4),
-    inset 0 0 20px rgba(69, 83, 239, 0.05);
-  display: flex;
-  flex-direction: column;
-  pointer-events: all;
-  overflow: hidden;
-  opacity: 0;
-  animation: windowOpen 0.3s ease forwards;
-  z-index: 100;
-}
-
-@keyframes windowOpen {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.os-window.closing {
-  animation: windowClose 0.3s ease forwards;
-}
-
-@keyframes windowClose {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-}
-
-.os-window.dragging {
-  opacity: 0.8;
-  box-shadow: 
-    0 0 60px rgba(69, 83, 239, 0.6),
-    inset 0 0 20px rgba(69, 83, 239, 0.1);
-}
-
-.window-titlebar {
-  background: linear-gradient(90deg, rgba(69, 83, 239, 0.2), rgba(69, 83, 239, 0.05));
-  border-bottom: 1px solid rgba(69, 83, 239, 0.3);
-  padding: 10px 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: grab;
-  user-select: none;
-}
-
-.window-titlebar:active {
-  cursor: grabbing;
-}
-
-.window-title {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #ffffff;
-  text-shadow: 0 0 8px rgba(69, 83, 239, 0.5);
-  letter-spacing: 0.05em;
-}
-
-.window-close-btn {
-  background: transparent;
-  border: 1px solid rgba(69, 83, 239, 0.3);
-  color: #ffffff;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: all 0.2s ease;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.9rem;
-}
-
-.window-close-btn:hover {
-  background: rgba(239, 69, 69, 0.2);
-  border-color: #ef4545;
-  color: #ef4545;
-  box-shadow: 0 0 10px rgba(239, 69, 69, 0.4);
-}
-
-.window-content {
-  flex: 1;
-  overflow: auto;
-  padding: 15px;
-  color: #ffffff;
-}
-
-.window-content::-webkit-scrollbar {
-  width: 8px;
-}
-
-.window-content::-webkit-scrollbar-track {
-  background: rgba(69, 83, 239, 0.05);
-}
-
-.window-content::-webkit-scrollbar-thumb {
-  background: #4553ef;
-  border-radius: 4px;
-}
-
-.window-content::-webkit-scrollbar-thumb:hover {
-  background: #5a68ff;
-  box-shadow: 0 0 10px rgba(69, 83, 239, 0.5);
-}
-
-/* File Browser */
-.file-browser {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.file-item {
-  display: flex;
-  align-items: center;
-  padding: 10px 12px;
-  border-bottom: 1px solid rgba(69, 83, 239, 0.1);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.9rem;
-  color: #b0b0b0;
-}
-
-.file-item:hover {
-  background: rgba(69, 83, 239, 0.1);
-  color: #ffffff;
-  padding-left: 20px;
-}
-
-.file-icon {
-  margin-right: 12px;
-  font-size: 1rem;
-}
-
-/* Terminal Input */
-#os-terminal-input {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(10, 10, 10, 0.9);
-  border: 2px solid #4553ef;
-  border-radius: 4px;
-  padding: 8px 12px;
-  z-index: 5000;
-}
-
-.terminal-path {
-  font-family: 'Fira Code', monospace;
-  color: #4553ef;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-shadow: 0 0 8px rgba(69, 83, 239, 0.5);
-}
-
-.terminal-command-input {
-  background: transparent;
-  border: none;
-  color: #00ff00;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.85rem;
-  outline: none;
-  min-width: 150px;
-  text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
-}
-
-.terminal-command-input::placeholder {
-  color: rgba(0, 255, 0, 0.3);
-}
-
-.terminal-command-input:focus {
-  text-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  /* Hide OS interface on mobile */
-  #os-desktop,
-  #os-taskbar {
+  /* Hide animated nav on mobile */
+  .navbar-nav.animated-nav {
     display: none !important;
   }
-  
-  .boot-terminal-container {
-    display: none;
-  }
-  
-  /* Show traditional interface on mobile */
-  .navbar,
-  .main-content {
-    display: block;
-  }
 }
-

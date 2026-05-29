@@ -38,6 +38,21 @@ I'm currently an undergrad student, soon to be masters student, who is passionat
 
 ---
 
+### Credentials
+
+<table class="credentials-table">
+  <tr>
+    <td title="Blue Team Junior Analyst">BTJA</td>
+    <td title="Certified Malware Analysis Beginners">CMAB</td>
+    <td title="Certified Threat Intelligence & Governance Analyst">CTIGA</td>
+  </tr>
+  <tr>
+    <td title="ISC2 Certified in Cybersecurity">ISC2 CC</td>
+  </tr>
+</table>
+
+---
+
 ### Achievements
 
 #### Champion, HackForGov Regionals 2025
