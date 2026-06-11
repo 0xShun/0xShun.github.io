@@ -11,7 +11,7 @@
 :root {
   --bg-primary: #000000;
   --bg-secondary: #0a0a0a;
-  --bg-card: #111111;
+  --bg-card: #0a0a0a;
   --text-primary: #ffffff;
   --text-secondary: #b0b0b0;
   --accent-primary: #4553ef;
@@ -70,7 +70,7 @@ html {
 }
 
 body {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   color: var(--text-primary);
   font-family: 'Fira Code', 'Courier New', 'Monaco', 'Consolas', monospace;
   line-height: 1.6;
@@ -177,7 +177,7 @@ a:hover {
   left: 0;
   right: 0;
   height: 60px;
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: var(--bg-secondary);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #000000;
   display: flex;
@@ -1107,7 +1107,7 @@ a:hover {
   max-width: 800px;
   margin: 0 auto;
   padding: var(--spacing-md) var(--spacing-sm);
-  line-height: 1.8;
+  line-height: 1.5;
   color: var(--text-primary);
 }
 
@@ -1151,6 +1151,39 @@ a:hover {
 
 .page-content a:hover {
   border-bottom-color: var(--accent-primary);
+}
+
+/* Text Formatting Styles */
+.page-content strong,
+.page-content b {
+  color: var(--text-primary);
+  font-weight: bold;
+}
+
+.page-content em,
+.page-content i {
+  color: var(--text-primary);
+  font-style: italic;
+}
+
+.page-content mark {
+  background: rgba(69, 83, 239, 0.2);
+  color: var(--text-primary);
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius-xs);
+}
+
+.page-content del,
+.page-content s {
+  color: var(--text-secondary);
+  text-decoration: line-through;
+}
+
+.page-content u,
+.page-content ins {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-primary);
 }
 
 /* ============================================
@@ -1388,7 +1421,7 @@ a:hover {
    Card Designs - Dark Base with Gradient Border Hover
    ============================================ */
 .card {
-  background: #020202;
+  background: var(--bg-card);
   border-radius: 20px;
   padding: var(--spacing-md);
   margin-bottom: var(--spacing-md);
@@ -1414,7 +1447,7 @@ a:hover {
 
 .card:hover,
 .card:active {
-  background: #020202;
+  background: var(--bg-card);
   box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.1);
 }
 
@@ -1631,7 +1664,7 @@ a:hover {
 }
 
 .post-content {
-  line-height: 1.8;
+  line-height: 1.5;
   color: var(--text-primary);
   text-align: justify;
   font-size: 1.05rem;
@@ -1791,6 +1824,40 @@ a:hover {
   padding: 1rem;
   border-radius: var(--radius-sm);
   overflow-x: auto;
+}
+
+/* Text Formatting Styles */
+.post-content strong,
+.post-content b {
+  color: var(--text-primary);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.post-content em,
+.post-content i {
+  color: var(--text-primary);
+  font-style: italic;
+}
+
+.post-content mark {
+  background: rgba(69, 83, 239, 0.2);
+  color: var(--text-primary);
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius-xs);
+}
+
+.post-content del,
+.post-content s {
+  color: var(--text-secondary);
+  text-decoration: line-through;
+}
+
+.post-content u,
+.post-content ins {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-primary);
 }
 
 /* Post Footer Navigation */
