@@ -14,7 +14,6 @@
       { title: 'Home', url: '/', icon: '🏠', type: 'page' },
       { title: 'Posts', url: '/posts/', icon: '📝', type: 'page' },
       { title: 'Projects', url: '/projects/', icon: '🚀', type: 'page' },
-      { title: 'Research', url: '/research/', icon: '📊', type: 'page' },
       { title: 'Categories', url: '/categories/', icon: '📁', type: 'page' },
       { title: 'Tags', url: '/tags/', icon: '🏷️', type: 'page' },
       { title: 'Archives', url: '/archives/', icon: '📚', type: 'page' },

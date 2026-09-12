@@ -2,7 +2,7 @@
 layout: page
 title: Research
 description: Publications on Cybersecurity, Data Analytics, DFIR, and Threat Intelligence
-permalink: /research/
+permalink: false
 ---
 
 <div style="margin-bottom: 2rem;">

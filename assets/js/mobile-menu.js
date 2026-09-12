@@ -129,7 +129,6 @@
       { title: 'Home', url: '/', type: 'Page' },
       { title: 'About', url: '/about', type: 'Page' },
       { title: 'Projects', url: '/projects', type: 'Page' },
-      { title: 'Research', url: '/research', type: 'Page' },
       { title: 'Tags', url: '/tags', type: 'Page' },
       { title: 'Archives', url: '/archives', type: 'Page' }
     ];

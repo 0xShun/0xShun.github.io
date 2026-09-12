@@ -114,17 +114,6 @@
         </a>
       </li>
       <li style="--i:#4553ef;--j:#7b68ff" class="nav-item">
-        <a href="{{ '/research' | relative_url }}" class="nav-link {% if page.url contains '/research' %}active{% endif %}" aria-label="Research">
-          <span class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="m21 21-4.35-4.35"></path>
-            </svg>
-          </span>
-          <span class="title">Research</span>
-        </a>
-      </li>
-      <li style="--i:#4553ef;--j:#7b68ff" class="nav-item">
         <a href="{{ '/tags' | relative_url }}" class="nav-link {% if page.url contains '/tags' %}active{% endif %}" aria-label="Tags">
           <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -168,7 +157,6 @@
         <li><a href="{{ '/about' | relative_url }}" class="mobile-nav-link {% if page.url contains '/about' %}active{% endif %}">About</a></li>
         <li><a href="{{ '/posts' | relative_url }}" class="mobile-nav-link {% if page.url contains '/posts' %}active{% endif %}">Writeups</a></li>
         <li><a href="{{ '/projects' | relative_url }}" class="mobile-nav-link {% if page.url contains '/projects' %}active{% endif %}">Projects</a></li>
-        <li><a href="{{ '/research' | relative_url }}" class="mobile-nav-link {% if page.url contains '/research' %}active{% endif %}">Research</a></li>
         <li><a href="{{ '/tags' | relative_url }}" class="mobile-nav-link {% if page.url contains '/tags' %}active{% endif %}">Tags</a></li>
         <li><a href="{{ '/archives' | relative_url }}" class="mobile-nav-link {% if page.url contains '/archives' %}active{% endif %}">Archives</a></li>
         <li><a href="https://tryhackme.com/p/5hun" class="mobile-nav-link" target="_blank" rel="noopener noreferrer">TryHackMe</a></li>
@@ -227,9 +215,6 @@
           </a>
           <a href="{{ '/projects' | relative_url }}" class="command-palette-item">
             <span>Projects</span>
-          </a>
-          <a href="{{ '/research' | relative_url }}" class="command-palette-item">
-            <span>Research</span>
           </a>
           <a href="{{ '/categories' | relative_url }}" class="command-palette-item">
             <span>Categories</span>
