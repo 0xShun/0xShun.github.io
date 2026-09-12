@@ -17,7 +17,9 @@ order: 4
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=ffffff&lines=Security+Researcher;Software+Engineer;DFIR+Aspirant;Python+Developer;Network+Engineer;Electronics+Nerd;)](https://git.io/typing-svg)
 
-I'm currently an undergrad student, soon to be masters student, who is passionate about tech and curious on how systems work. My focus is on Digital Forensics & Incident Response, IoT, Data Analysis, Reverse Engineering, and Threat Intelligence. This site serves as a chill space for articles on security research, technical blogs, and CTF write-ups.
+Cybersecurity professional interested in Malware Reverse Engineering, Digital Forensics & Incident Response (DFIR), and Binary Analysis with a touch of machine learning applications in cybersecurity ^^
+
+Regular CTF participant, continuously developing both offensive and defensive skills. Currently spending too much time poking at android malware samples and learning how AI models can be used in on-device(android) malware detection
 
 ### Socials
 
@@ -38,18 +40,22 @@ I'm currently an undergrad student, soon to be masters student, who is passionat
 
 ---
 
-### Credentials
+### Certifications
 
-<table class="credentials-table">
-  <tr>
-    <td title="Blue Team Junior Analyst">BTJA</td>
-    <td title="Certified Malware Analysis Beginners">CMAB</td>
-    <td title="Certified Threat Intelligence & Governance Analyst">CTIGA</td>
-  </tr>
-  <tr>
-    <td title="ISC2 Certified in Cybersecurity">ISC2 CC</td>
-  </tr>
-</table>
+<div class="certifications-grid">
+  {% assign certification_files = site.static_files | sort: "path" %}
+  {% for certification in certification_files %}
+    {% if certification.path contains "/assets/img/certifications/" %}
+      {% assign extension = certification.extname | downcase %}
+      {% if extension == ".jpg" or extension == ".jpeg" or extension == ".png" or extension == ".gif" or extension == ".webp" %}
+        <figure class="certification-item">
+          <img src="{{ certification.path | relative_url }}" alt="{{ certification.name }} certification" loading="lazy">
+        </figure>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  <div class="certification-text">ISC2 CC</div>
+</div>
 
 ---
 
