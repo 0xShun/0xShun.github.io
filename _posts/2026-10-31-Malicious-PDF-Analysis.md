@@ -8,6 +8,7 @@ tags:
   - PowerShell
   - WMI
   - Incident Response
+image: "/assets/img/malicious-pdf.jpeg"
 ---
 
 # Malware Analysis Report: Malicious PDF

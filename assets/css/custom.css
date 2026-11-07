@@ -9,14 +9,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg-primary: #1e1e1e;
-  --bg-secondary: #1e1e1e;
-  --bg-card: #252526;
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #0a0a0a;
   --text-primary: #ffffff;
   --text-secondary: #b0b0b0;
   --accent-primary: #297fff;
   --accent-hover: #60a0ff;
-  --border-color: #3c3c3c;
+  --border-color: #2a2a2a;
   --border-accent: #297fff;
   --shadow: rgba(41, 127, 255, 0.3);
   --accent-glow: rgba(41, 127, 255, 0.5);
@@ -179,7 +179,7 @@ a:hover {
   height: 60px;
   background-color: var(--bg-secondary);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid #000000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -373,7 +373,7 @@ a:hover {
   top: 60px;
   left: 0;
   right: 0;
-  background-color: var(--bg-card);
+  background-color: rgba(0, 0, 0, 0.98);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
   max-height: 0;
@@ -626,7 +626,7 @@ a:hover {
   position: relative;
   width: 90%;
   max-width: 600px;
-  background: var(--bg-card);
+  background: #020202;
   border-radius: 20px;
   border: 2px solid transparent;
   overflow: visible;
@@ -651,7 +651,7 @@ a:hover {
 }
 
 .command-palette-container:hover {
-  background: var(--bg-card);
+  background: #020202;
   box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.1);
 }
 
@@ -1444,7 +1444,7 @@ a:hover {
   transition: all 0.3s ease;
   position: relative;
   cursor: pointer;
-  background: var(--bg-card);
+  background: #020202;
   border-radius: 20px;
   border: 2px solid transparent;
   overflow: visible;
@@ -1464,7 +1464,7 @@ a:hover {
 }
 
 .project-card:active {
-  background: var(--bg-card);
+  background: #020202;
 }
 
 .tech-tag {
@@ -3449,7 +3449,7 @@ a:hover {
 
   .mobile-terminal {
     padding: 1.25rem;
-    background: var(--bg-card);
+    background: #101010;
     border: 1px solid var(--border-color);
     border-top: 2px solid var(--accent-primary);
     border-radius: var(--radius-lg);
@@ -3580,8 +3580,8 @@ a:hover {
   padding: 0;
   margin: 0;
   overflow: hidden;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
+  background: #141414;
+  border: 1px solid #292929;
   border-radius: 12px;
 }
 
