@@ -55,6 +55,10 @@
     `;
 
     // Category filter
+    if (categories.length > 0 || years.length > 0) {
+      const open = window.matchMedia('(max-width: 768px)').matches ? '' : ' open';
+      html += `<details class="filter-options"${open}><summary>Filters</summary>`;
+    }
     if (categories.length > 0) {
       html += '<div class="filter-group">';
       html += '<label class="filter-label">Categories:</label>';
@@ -82,6 +86,9 @@
       html += '</div></div>';
     }
 
+    if (categories.length > 0 || years.length > 0) {
+      html += '</details>';
+    }
     html += '</div>';
     container.innerHTML = html;
   }
@@ -105,15 +112,17 @@
         // Update active state
         const sameTypeButtons = document.querySelectorAll(`.filter-btn[data-filter-type="${filterType}"]`);
         sameTypeButtons.forEach(b => b.classList.remove('filter-btn-active'));
+        this.classList.add('filter-btn-active');
 
         if (filterValue === 'all') {
           activeFilters[filterType === 'category' ? 'categories' : 'years'] = [];
         } else {
           activeFilters[filterType === 'category' ? 'categories' : 'years'] = [filterValue];
-          this.classList.add('filter-btn-active');
-          sameTypeButtons[0].classList.remove('filter-btn-active'); // Remove "All" active state
         }
 
+        const selectedCount = activeFilters.categories.length + activeFilters.years.length;
+        const summary = document.querySelector('.filter-options summary');
+        summary.textContent = selectedCount ? `Filters (${selectedCount} active)` : 'Filters';
         applyFilters(activeFilters);
       });
     });

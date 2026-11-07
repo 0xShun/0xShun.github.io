@@ -8,6 +8,8 @@
 
   const codeElement = document.getElementById('typingCode');
   if (!codeElement) return;
+  const mobileViewport = window.matchMedia('(max-width: 768px)');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   // The code to type out (matches the image)
   const codeText = `class Researcher:
@@ -25,6 +27,7 @@
   const baseTypingSpeed = 37.5; // Base speed in milliseconds (150 / 4)
   const speedVariation = 25; // Random variation range (100 / 4)
   let currentIndex = 0;
+  let typingTimer;
   
   /**
    * Get a natural typing delay with variation
@@ -78,11 +81,15 @@
    * Type out one character at a time
    */
   function typeCharacter() {
+    if (mobileViewport.matches || reducedMotion.matches) {
+      codeElement.innerHTML = highlightSyntax(codeText);
+      return;
+    }
     if (currentIndex < codeText.length) {
       const currentText = codeText.substring(0, currentIndex + 1);
       codeElement.innerHTML = highlightSyntax(currentText) + '<span class="typing-cursor">|</span>';
       currentIndex++;
-      setTimeout(typeCharacter, getTypingDelay());
+      typingTimer = setTimeout(typeCharacter, getTypingDelay());
     } else {
       // Typing complete - keep cursor blinking
       codeElement.innerHTML = highlightSyntax(codeText) + '<span class="typing-cursor">|</span>';
@@ -114,11 +121,20 @@
    */
   function init() {
     addCursorStyle();
-    
-    // Small delay before starting to make it feel more natural
-    setTimeout(() => {
-      typeCharacter();
-    }, 500);
+    if (mobileViewport.matches || reducedMotion.matches) {
+      codeElement.innerHTML = highlightSyntax(codeText);
+    } else {
+      typingTimer = setTimeout(typeCharacter, 500);
+    }
+
+    function showCompleteCode() {
+      if (mobileViewport.matches || reducedMotion.matches) {
+        clearTimeout(typingTimer);
+        codeElement.innerHTML = highlightSyntax(codeText);
+      }
+    }
+    mobileViewport.addEventListener('change', showCompleteCode);
+    reducedMotion.addEventListener('change', showCompleteCode);
   }
 
   // Start animation when DOM is ready

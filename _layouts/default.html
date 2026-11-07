@@ -42,7 +42,7 @@
   <!-- Navigation Bar -->
   <nav class="navbar">
     <!-- Mobile Hamburger Menu (visible on mobile only) -->
-    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileMenu">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
@@ -164,13 +164,6 @@
     </div>
     
     <div class="navbar-actions">
-      <!-- Site Title -->
-      <div class="navbar-title">
-        <a href="{{ '/' | relative_url }}" style="color: var(--text-primary); text-decoration: none; font-weight: bold; font-size: 1.2rem;">
-          {{ site.title }}
-        </a>
-      </div>
-      
       <!-- Desktop Search Button -->
       <button class="command-palette-btn desktop-search" id="openCommandPalette" aria-label="Search">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -239,7 +232,7 @@
   </div>
 
   <!-- Mobile Simple Search Modal -->
-  <div id="mobileSearchModal" class="mobile-search-modal">
+  <div id="mobileSearchModal" class="mobile-search-modal" role="dialog" aria-modal="true" aria-label="Search site">
     <div class="mobile-search-overlay" id="mobileSearchOverlay"></div>
     <div class="mobile-search-container">
       <div class="mobile-search-header">
@@ -248,9 +241,10 @@
           id="mobileSearchInput" 
           class="mobile-search-input" 
           placeholder="Search..."
+          aria-label="Search site"
           autocomplete="off"
         >
-        <button class="mobile-search-close" id="closeMobileSearch">×</button>
+        <button class="mobile-search-close" id="closeMobileSearch" aria-label="Close search">×</button>
       </div>
       
       <div class="mobile-search-results" id="mobileSearchResults">
@@ -276,16 +270,16 @@
     </p>
   </footer>
 
-  <!-- Boot Animation Script (must run first) -->
-  <script src="{{ '/assets/js/boot-animation.js' | relative_url }}"></script>
-
   <!-- Wireframe Animation Script -->
   <script src="{{ '/assets/js/wireframe.js' | relative_url }}"></script>
   
   <!-- Theme Toggle Script -->
   <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}"></script>
   
-  <!-- Mobile Menu and Gestures Script -->
+  <!-- Command Palette Script and shared search index -->
+  <script src="{{ '/assets/js/command-palette.js' | relative_url }}" data-search-url="{{ '/search.json' | relative_url }}" data-base-url="{{ '/' | relative_url }}"></script>
+
+  <!-- Mobile Menu and Search -->
   <script src="{{ '/assets/js/mobile-menu.js' | relative_url }}"></script>
   
   <!-- Typing Animation Script -->
@@ -297,8 +291,8 @@
   <!-- Image Handler Script -->
   <script src="{{ '/assets/js/image-handler.js' | relative_url }}"></script>
   
-  <!-- Command Palette Script -->
-  <script src="{{ '/assets/js/command-palette.js' | relative_url }}"></script>
+  <!-- Article tables and images -->
+  <script src="{{ '/assets/js/article-enhancements.js' | relative_url }}"></script>
   
   <!-- Filter Script -->
   <script src="{{ '/assets/js/filter.js' | relative_url }}"></script>

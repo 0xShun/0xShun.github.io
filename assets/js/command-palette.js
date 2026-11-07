@@ -5,21 +5,25 @@
  */
 
 (function() {
+  const searchScript = document.currentScript;
+  const baseUrl = searchScript.dataset.baseUrl;
   // Get all site posts data from Jekyll
   const siteData = {
     posts: [],
+    status: 'loading',
     projects: [],
     research: [],
     pages: [
-      { title: 'Home', url: '/', icon: '🏠', type: 'page' },
-      { title: 'Posts', url: '/posts/', icon: '📝', type: 'page' },
-      { title: 'Projects', url: '/projects/', icon: '🚀', type: 'page' },
-      { title: 'Categories', url: '/categories/', icon: '📁', type: 'page' },
-      { title: 'Tags', url: '/tags/', icon: '🏷️', type: 'page' },
-      { title: 'Archives', url: '/archives/', icon: '📚', type: 'page' },
-      { title: 'About', url: '/about/', icon: 'ℹ️', type: 'page' }
+      { title: 'Home', url: baseUrl, icon: '🏠', type: 'page' },
+      { title: 'Posts', url: baseUrl + 'posts/', icon: '📝', type: 'page' },
+      { title: 'Projects', url: baseUrl + 'projects/', icon: '🚀', type: 'page' },
+      { title: 'Categories', url: baseUrl + 'categories/', icon: '📁', type: 'page' },
+      { title: 'Tags', url: baseUrl + 'tags/', icon: '🏷️', type: 'page' },
+      { title: 'Archives', url: baseUrl + 'archives/', icon: '📚', type: 'page' },
+      { title: 'About', url: baseUrl + 'about/', icon: 'ℹ️', type: 'page' }
     ]
   };
+  window.siteSearchData = siteData;
 
   // DOM Elements
   const modal = document.getElementById('commandPaletteModal');
@@ -148,7 +152,10 @@
   // Display search results - OPTIMIZED with DocumentFragment
   function displayResults(results) {
     if (results.length === 0) {
-      searchResults.innerHTML = '<div class="no-results">No results found</div>';
+      const message = siteData.status === 'error' ? 'Post search is unavailable. Please try again later.' :
+        siteData.status === 'loading' ? 'Loading search index...' : 'No results found';
+      searchResults.innerHTML = '<div class="no-results"></div>';
+      searchResults.firstElementChild.textContent = message;
       searchResultsSection.style.display = 'block';
       pagesSection.style.display = 'none';
       return;
@@ -271,13 +278,22 @@
   document.addEventListener('keydown', handleKeydown);
 
   // Load posts data from JSON
-  fetch('/search.json')
-    .then(response => response.json())
+  fetch(searchScript.dataset.searchUrl)
+    .then(response => {
+      if (!response.ok) throw new Error(`Search index request failed: ${response.status}`);
+      return response.json();
+    })
     .then(data => {
       siteData.posts = data;
+      siteData.status = 'ready';
     })
     .catch(err => {
-      console.log('Search data not available');
+      siteData.status = 'error';
+      console.error('Search data not available:', err);
+    })
+    .finally(() => {
+      document.dispatchEvent(new Event('site-search-ready'));
+      if (modal.classList.contains('active') && input.value.trim()) search(input.value);
     });
 
   // Extract project and research data from pages (they'll be in search.json)

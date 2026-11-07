@@ -14,16 +14,27 @@ layout: default
     <div class="hero-code-section">
       <pre class="typing-code"><code id="typingCode"></code></pre>
     </div>
+    <div class="mobile-hero">
+      <div class="mobile-terminal">
+        <div class="mobile-terminal-prompt">&gt; whoami</div>
+        <h1>Shun</h1>
+        <p>Security researcher &amp; developer</p>
+      </div>
+      <div class="mobile-hero-actions">
+        <a class="accent-bg" href="{{ '/posts/' | relative_url }}">View writeups</a>
+        <a href="{{ '/projects/' | relative_url }}">View projects</a>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- Recent Posts -->
 <section>
-  <h2 style="color: var(--accent-primary); font-size: 2rem; margin-bottom: 2rem; text-align: center;">
+  <h2 class="home-section-title">
     Latest Posts
   </h2>
   
-  <div class="home-posts-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+  <div class="home-posts-grid">
     {% assign posts = site.posts | limit: 6 %}
     {% for post in posts %}
       <article class="card" style="height: 100%; display: flex; flex-direction: column;">
@@ -79,7 +90,7 @@ layout: default
 
 <!-- Featured Sections -->
 <section style="margin-top: 4rem;">
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+  <div class="home-featured-grid">
     
     <!-- Projects -->
     <div class="card">
