@@ -1,0 +1,6 @@
+{%- assign custom_summary = include.post.summary | strip -%}
+{%- if custom_summary != empty -%}
+  {{- custom_summary | escape -}}
+{%- else -%}
+  {{- include.post.excerpt | strip_html | truncatewords: include.words -}}
+{%- endif -%}

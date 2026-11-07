@@ -10,15 +10,21 @@ permalink: /posts/
 <section>
   <div class="writeup-grid">
     {% for post in site.posts %}
-      <article class="card writeup-card" data-href="{{ post.url | relative_url }}" data-filter-item data-title="{{ post.title | escape }}" data-excerpt="{{ post.excerpt | strip_html | escape }}" data-categories="{% for cat in post.categories %}{{ cat | escape }}{% unless forloop.last %},{% endunless %}{% endfor %}" data-year="{{ post.date | date: '%Y' }}">
+      {% assign custom_summary = post.summary | strip %}
+      {% if custom_summary != empty %}
+        {% assign search_excerpt = custom_summary %}
+      {% else %}
+        {% assign search_excerpt = post.excerpt | strip_html %}
+      {% endif %}
+      <article class="card writeup-card" data-href="{{ post.url | relative_url }}" data-filter-item data-title="{{ post.title | escape }}" data-excerpt="{{ search_excerpt | escape }}" data-categories="{% for cat in post.categories %}{{ cat | escape }}{% unless forloop.last %},{% endunless %}{% endfor %}" data-year="{{ post.date | date: '%Y' }}">
         {% include post-cover.html post=post %}
         <div class="writeup-card-body">
           <h3 class="card-title">
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
           </h3>
-          {% if post.excerpt %}
+          {% if custom_summary != empty or post.excerpt %}
             <div class="card-excerpt">
-              {{ post.excerpt | strip_html | truncatewords: 30 }}
+              {% include post-summary.html post=post words=30 %}
             </div>
           {% endif %}
           {% if post.tags %}

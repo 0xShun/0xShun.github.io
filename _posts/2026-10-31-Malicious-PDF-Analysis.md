@@ -7,6 +7,7 @@ tags:
   - PowerShell
   - WMI
 image: "/assets/img/malicious-pdf.jpeg"
+summary: "An investigation into a malicious PDF that stages files and establishes persistence."
 ---
 
 # Malware Analysis Report: Malicious PDF

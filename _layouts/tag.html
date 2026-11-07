@@ -42,9 +42,10 @@ layout: default
             </div>
           {% endif %}
           
-          {% if post.excerpt %}
+          {% assign custom_summary = post.summary | strip %}
+          {% if custom_summary != empty or post.excerpt %}
             <div class="card-excerpt">
-              {{ post.excerpt | strip_html | truncatewords: 30 }}
+              {% include post-summary.html post=post words=30 %}
             </div>
           {% endif %}
         </article>

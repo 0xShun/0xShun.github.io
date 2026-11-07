@@ -53,9 +53,10 @@ layout: default
               {% endif %}
             </div>
             
-            {% if post.excerpt %}
+            {% assign custom_summary = post.summary | strip %}
+            {% if custom_summary != empty or post.excerpt %}
               <div class="card-excerpt" style="flex: 1;">
-                {{ post.excerpt | strip_html | truncatewords: 15 }}
+                {% include post-summary.html post=post words=15 %}
               </div>
             {% endif %}
           </article>
