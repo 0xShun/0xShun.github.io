@@ -2,12 +2,10 @@
 title: "Malicious PDF Analysis"
 categories:
   - Malware Analysis
-  - Digital Forensics
 tags:
   - PDF
   - PowerShell
   - WMI
-  - Incident Response
 image: "/assets/img/malicious-pdf.jpeg"
 ---
 

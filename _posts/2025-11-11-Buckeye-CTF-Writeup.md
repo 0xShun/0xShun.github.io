@@ -1,4 +1,7 @@
 ---
+title: "Buckeye CTF Writeup"
+categories: 
+  - CTF Writeup
 tags:
   - CTF
   - Web
