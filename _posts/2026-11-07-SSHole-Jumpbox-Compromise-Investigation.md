@@ -82,10 +82,8 @@ The attacker downloaded `setup.sh` from a GitHub repository and ran it directly 
 After the script ran, the attacker listed `/tmp` and checked the hidden file `/tmp/.devenv`. The file was then sent in an HTTP POST body to `https://devv.coding.eu/process`. Finally, `shred -u` overwrote and deleted the file, removing it from the host. 
 
 # Indicators of Compromise
-| Type             | Value                                                                                |
-| ---------------- | ------------------------------------------------------------------------------------ |
-| **Script URL**   | `https://raw.githubusercontent.com/papinyurii33/devscripts/refs/heads/main/setup.sh` |
-| **Exfil URL**    | `https://devv.coding.eu/process`                                                     |
+- Script URL: `https://raw[.]githubusercontent[.]com/papinyurii33/devscripts/refs/heads/main/setup.sh`
+- Exfil URL: `hxxps[://]devv[.]coding[.]eu/process`
 
 # References
 - [OpenSSH Bypass: CVE-2026-123158 - OX Security](https://www.ox.security/blog/openssh-authentication-bypass-cve-2026-123158/ "null")
