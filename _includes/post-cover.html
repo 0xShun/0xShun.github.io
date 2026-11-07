@@ -1,0 +1,12 @@
+{% assign cover_image = include.post.image.path | default: include.post.image %}
+{% if cover_image %}
+  <div class="post-cover post-cover-image">
+    <img src="{{ cover_image | relative_url }}" alt="" loading="lazy">
+  </div>
+{% else %}
+  <div class="post-cover post-cover-generated" aria-hidden="true">
+    <span class="post-cover-label">0xShun / Writeups</span>
+    <span class="post-cover-title">{{ include.post.title }}</span>
+    <span class="post-cover-symbol">&gt;_</span>
+  </div>
+{% endif %}

@@ -6,25 +6,27 @@ layout: default
   <!-- Post Container -->
   <div class="post-container">
     <!-- Post Header -->
+    <nav class="post-breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="{{ '/posts/' | relative_url }}">Writeups</a>
+    </nav>
     <header class="post-header">
       <h1 class="post-title">{{ page.title }}</h1>
-      
-      <div class="post-meta-date">
-        {{ page.date | date: "%B %d, %Y" }}
-        {% if page.author %}
-          <span style="margin-left: 1rem;">
-            {{ page.author }}
-          </span>
-        {% endif %}
-        {% if page.categories %}
-          <span style="margin-left: 1rem;">
-            {% for category in page.categories %}
-              <a href="{{ site.baseurl }}/categories/{{ category | slugify }}" class="category">{{ category }}</a>
-            {% endfor %}
-          </span>
-        {% endif %}
+      <div class="post-byline">
+        <img class="post-author-avatar" src="{{ site.avatar | relative_url }}" alt="" width="44" height="44">
+        <div>
+          <div class="post-author">{{ page.author | default: site.social.name }}</div>
+          <time class="post-meta-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+        </div>
       </div>
-      
+      {% if page.categories %}
+        <div class="post-categories">
+          {% for category in page.categories %}
+            <a href="{{ site.baseurl }}/categories/{{ category | slugify }}" class="category">{{ category }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
       {% if page.tags %}
         <div class="post-tags">
           {% for tag in page.tags %}
@@ -33,6 +35,8 @@ layout: default
         </div>
       {% endif %}
     </header>
+
+    {% include post-cover.html post=page %}
 
     <!-- Post Content -->
     <div class="post-content">

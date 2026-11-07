@@ -29,12 +29,12 @@
       document.body.classList.remove('blue-team');
     } else {
       // Blue Team Theme (Default)
-      root.style.setProperty('--accent-primary', '#4553ef');
-      root.style.setProperty('--accent-hover', '#5a68ff');
-      root.style.setProperty('--border-accent', '#4553ef');
-      root.style.setProperty('--shadow', 'rgba(69, 83, 239, 0.3)');
-      root.style.setProperty('--accent-glow', 'rgba(69, 83, 239, 0.5)');
-      root.style.setProperty('--accent-bg', 'rgba(69, 83, 239, 0.1)');
+      root.style.setProperty('--accent-primary', '#297fff');
+      root.style.setProperty('--accent-hover', '#60a0ff');
+      root.style.setProperty('--border-accent', '#297fff');
+      root.style.setProperty('--shadow', 'rgba(41, 127, 255, 0.3)');
+      root.style.setProperty('--accent-glow', 'rgba(41, 127, 255, 0.5)');
+      root.style.setProperty('--accent-bg', 'rgba(41, 127, 255, 0.1)');
       document.body.classList.add('blue-team');
       document.body.classList.remove('red-team');
     }

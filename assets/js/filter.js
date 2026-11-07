@@ -56,7 +56,7 @@
 
     // Category filter
     if (categories.length > 0 || years.length > 0) {
-      const open = window.matchMedia('(max-width: 768px)').matches ? '' : ' open';
+      const open = window.matchMedia('(max-width: 768px)').matches || document.querySelector('.writeup-grid') ? '' : ' open';
       html += `<details class="filter-options"${open}><summary>Filters</summary>`;
     }
     if (categories.length > 0) {

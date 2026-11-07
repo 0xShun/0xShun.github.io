@@ -23,7 +23,7 @@
   // Get current accent color from CSS variable
   function getAccentColor() {
     return getComputedStyle(document.documentElement)
-      .getPropertyValue('--accent-primary').trim() || '#4553ef';
+      .getPropertyValue('--accent-primary').trim() || '#297fff';
   }
 
   // Resize canvas to fill window
