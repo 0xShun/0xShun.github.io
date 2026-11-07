@@ -3671,10 +3671,6 @@ a:hover {
   min-height: 0;
 }
 
-.writeup-categories .category {
-  margin: 0 0 0.75rem;
-}
-
 .writeup-card .card-excerpt {
   flex: 1;
   font-size: 0.95rem;

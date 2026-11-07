@@ -13,13 +13,6 @@ permalink: /posts/
       <article class="card writeup-card" data-href="{{ post.url | relative_url }}" data-filter-item data-title="{{ post.title | escape }}" data-excerpt="{{ post.excerpt | strip_html | escape }}" data-categories="{% for cat in post.categories %}{{ cat | escape }}{% unless forloop.last %},{% endunless %}{% endfor %}" data-year="{{ post.date | date: '%Y' }}">
         {% include post-cover.html post=post %}
         <div class="writeup-card-body">
-          {% if post.categories %}
-            <div class="writeup-categories">
-              {% for category in post.categories limit:1 %}
-                <a href="{{ site.baseurl }}/categories/{{ category | slugify }}" class="category">{{ category }}</a>
-              {% endfor %}
-            </div>
-          {% endif %}
           <h3 class="card-title">
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
           </h3>
