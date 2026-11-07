@@ -3289,6 +3289,10 @@ a:hover {
   line-height: 1.65;
 }
 
+.page-content .card .card-title {
+  margin-top: 0;
+}
+
 .post-content pre,
 .post-content code,
 .post-content pre *,
